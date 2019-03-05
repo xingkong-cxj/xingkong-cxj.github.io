@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[单片机流水灯实验]]></title>
+    <url>%2F2019%2F03%2F06%2F%E5%8D%95%E7%89%87%E6%9C%BA%E6%B5%81%E6%B0%B4%E7%81%AF%E5%AE%9E%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional 实验电路图 程序123456789101112131415161718192021#include&lt;reg51.h&gt;#include&lt;intrins.h&gt;#define uchar unsigned char#define uint unsigned int//延时函数，延时 t msvoid delay(uint t)&#123; uchar i; while(t--)&#123; for(i=0;i&lt;120;++i); &#125;&#125;void main()&#123; P1=0xfe; while(1)&#123; //延时0.5秒 delay(500); P1=_crol_(P1,1); &#125;&#125;]]></content>
+      <categories>
+        <category>单片机</category>
+      </categories>
+      <tags>
+        <tag>单片机实验</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1001 害死人不偿命的(3n+1)猜想]]></title>
     <url>%2F2019%2F02%2F27%2F1001-%E5%AE%B3%E6%AD%BB%E4%BA%BA%E4%B8%8D%E5%81%BF%E5%91%BD%E7%9A%84-3n-1-%E7%8C%9C%E6%83%B3%2F</url>
     <content type="text"><![CDATA[卡拉兹(Callatz)猜想： 对任何一个正整数 n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3n+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 n=1。卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展…… 我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 n，简单地数一下，需要多少步（砍几下）才能得到 n=1？ 输入格式：每个测试输入包含 1 个测试用例，即给出正整数 n 的值。 输出格式：输出从 n 计算到 1 需要的步数。 输入样例：3 输出样例：5 思路：没什么特别的，直接暴力循环求解。 程序：1234567891011121314151617#include &lt;stdio.h&gt;int main() &#123; int n,cnt=0; scanf("%d",&amp;n); while(n!=1)&#123; if(n%2==1)&#123; n=n*3+1; &#125; else&#123; n=n/2; cnt++; &#125; &#125; printf("%d\n",cnt); return 0;&#125;]]></content>
