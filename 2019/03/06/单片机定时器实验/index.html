@@ -100,24 +100,27 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="实验内容8个LED闪烁，点亮时间0.2s，熄灭时间0.2s。要求用定时器中断实现。 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51)LED灯(LED-YELLOW)电阻(res)  实验原理图 程序123456789101112131415161718192021222324#include&amp;lt;reg51.h&amp;gt;//表示延时2">
+<meta name="keywords" content="单片机实验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://xingkong-cxj.github.io/2019/02/23/hello-world/index.html">
+<meta property="og:title" content="单片机定时器实验">
+<meta property="og:url" content="https://xingkong-cxj.github.io/2019/03/06/单片机定时器实验/index.html">
 <meta property="og:site_name" content="书屋迷宫">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="实验内容8个LED闪烁，点亮时间0.2s，熄灭时间0.2s。要求用定时器中断实现。 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51)LED灯(LED-YELLOW)电阻(res)  实验原理图 程序123456789101112131415161718192021222324#include&amp;lt;reg51.h&amp;gt;//表示延时2">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-27T15:19:58.253Z">
+<meta property="og:image" content="https://xingkong-cxj.github.io/2019/03/06/单片机定时器实验/实验原理图.png">
+<meta property="og:updated_time" content="2019-03-05T17:00:54.884Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="单片机定时器实验">
+<meta name="twitter:description" content="实验内容8个LED闪烁，点亮时间0.2s，熄灭时间0.2s。要求用定时器中断实现。 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51)LED灯(LED-YELLOW)电阻(res)  实验原理图 程序123456789101112131415161718192021222324#include&amp;lt;reg51.h&amp;gt;//表示延时2">
+<meta name="twitter:image" content="https://xingkong-cxj.github.io/2019/03/06/单片机定时器实验/实验原理图.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://xingkong-cxj.github.io/2019/02/23/hello-world/">
+  <link rel="canonical" href="https://xingkong-cxj.github.io/2019/03/06/单片机定时器实验/">
 
 
 
@@ -127,7 +130,7 @@
   };
 </script>
 
-  <title>Hello World | 书屋迷宫</title>
+  <title>单片机定时器实验 | 书屋迷宫</title>
   
 
 
@@ -355,7 +358,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingkong-cxj.github.io/2019/02/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://xingkong-cxj.github.io/2019/03/06/单片机定时器实验/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xingkong_cxj">
@@ -372,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">单片机定时器实验
 
               
             
@@ -398,12 +401,30 @@
                 
               
 
-              <time title="创建时间：2019-02-23 21:23:18" itemprop="dateCreated datePublished" datetime="2019-02-23T21:23:18+08:00">2019-02-23</time>
+              <time title="创建时间：2019-03-06 00:53:15" itemprop="dateCreated datePublished" datetime="2019-03-06T00:53:15+08:00">2019-03-06</time>
             
 
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/单片机/" itemprop="url" rel="index"><span itemprop="name">单片机</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -440,16 +461,15 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>8个LED闪烁，点亮时间0.2s，熄灭时间0.2s。要求用定时器中断实现。</p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><blockquote>
+<p>uVision 5<br>Protues 8 Professional</p>
+</blockquote>
+<h2 id="实验元器件"><a href="#实验元器件" class="headerlink" title="实验元器件"></a>实验元器件</h2><blockquote>
+<p>单片机(AT89C51)<br>LED灯(LED-YELLOW)<br>电阻(res)</p>
+</blockquote>
+<h2 id="实验原理图"><a href="#实验原理图" class="headerlink" title="实验原理图"></a>实验原理图</h2><p><img src="实验原理图.png" alt=""></p>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;reg51.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//表示延时200毫秒，即0.2秒</span></span><br><span class="line"><span class="keyword">int</span> i=<span class="number">200</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    TMOD=<span class="number">0x01</span>;</span><br><span class="line">    TH0=<span class="number">0xfc</span>;</span><br><span class="line">    TL0=<span class="number">0x18</span>;</span><br><span class="line">    EA=<span class="number">1</span>;</span><br><span class="line">    ET0=<span class="number">1</span>;</span><br><span class="line">    TR0=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer0</span><span class="params">()</span> interrupt 1</span>&#123;</span><br><span class="line">    TH0=<span class="number">0xfc</span>;</span><br><span class="line">    TL0=<span class="number">0x18</span>;</span><br><span class="line">    i--;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">        P1=~P1;</span><br><span class="line">        i=<span class="number">200</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -469,6 +489,13 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/单片机实验/" <i="" class="fa fa-tag"> 单片机实验
+            </a>
+          
+        </div>
       
 
       
@@ -505,14 +532,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/06/单片机外部中断实验/" rel="next" title="单片机外部中断实验">
+                <i class="fa fa-chevron-left"></i> 单片机外部中断实验
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/27/1001-害死人不偿命的-3n-1-猜想/" rel="prev" title="1001 害死人不偿命的(3n+1)猜想">
-                1001 害死人不偿命的(3n+1)猜想 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/06/单片机单个数码管显示实验/" rel="prev" title="单片机单个数码管显示实验">
+                单片机单个数码管显示实验 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -656,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验元器件"><span class="nav-number">3.</span> <span class="nav-text">实验元器件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验原理图"><span class="nav-number">4.</span> <span class="nav-text">实验原理图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序"><span class="nav-number">5.</span> <span class="nav-text">程序</span></a></li></ol></div>
             
 
           </div>

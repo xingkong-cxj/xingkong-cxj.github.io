@@ -100,19 +100,19 @@
 
 
 
-  <meta name="description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;lt;intrins.h&amp;gt;#define uchar unsigned char#de">
+  <meta name="description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51);LED灯(LED-YELLOW);电阻(res)  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;l">
 <meta name="keywords" content="单片机实验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单片机流水灯实验">
 <meta property="og:url" content="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/index.html">
 <meta property="og:site_name" content="书屋迷宫">
-<meta property="og:description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;lt;intrins.h&amp;gt;#define uchar unsigned char#de">
+<meta property="og:description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51);LED灯(LED-YELLOW);电阻(res)  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;l">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/实验原理图.png">
-<meta property="og:updated_time" content="2019-03-05T16:32:35.533Z">
+<meta property="og:updated_time" content="2019-03-05T16:52:41.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单片机流水灯实验">
-<meta name="twitter:description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;lt;intrins.h&amp;gt;#define uchar unsigned char#de">
+<meta name="twitter:description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51);LED灯(LED-YELLOW);电阻(res)  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;l">
 <meta name="twitter:image" content="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/实验原理图.png">
 
 
@@ -465,6 +465,9 @@
 <h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><blockquote>
 <p>uVision 5<br>Protues 8 Professional</p>
 </blockquote>
+<h2 id="实验元器件"><a href="#实验元器件" class="headerlink" title="实验元器件"></a>实验元器件</h2><blockquote>
+<p>单片机(AT89C51);<br>LED灯(LED-YELLOW);<br>电阻(res)</p>
+</blockquote>
 <h2 id="实验电路图"><a href="#实验电路图" class="headerlink" title="实验电路图"></a>实验电路图</h2><p><img src="实验原理图.png" alt=""></p>
 <h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;reg51.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;intrins.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//延时函数，延时 t ms</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delay</span><span class="params">(uint t)</span></span>&#123;</span><br><span class="line">    uchar i;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">120</span>;++i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P1=<span class="number">0xfe</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//延时0.5秒</span></span><br><span class="line">        delay(<span class="number">500</span>);</span><br><span class="line">        P1=_crol_(P1,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -540,6 +543,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/06/单片机外部中断实验/" rel="prev" title="单片机外部中断实验">
+                单片机外部中断实验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -609,7 +616,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -681,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验电路图"><span class="nav-number">3.</span> <span class="nav-text">实验电路图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序"><span class="nav-number">4.</span> <span class="nav-text">程序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验元器件"><span class="nav-number">3.</span> <span class="nav-text">实验元器件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验电路图"><span class="nav-number">4.</span> <span class="nav-text">实验电路图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序"><span class="nav-number">5.</span> <span class="nav-text">程序</span></a></li></ol></div>
             
 
           </div>

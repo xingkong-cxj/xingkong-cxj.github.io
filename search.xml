@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[单片机独立式键盘实验]]></title>
+    <url>%2F2019%2F03%2F06%2F%E5%8D%95%E7%89%87%E6%9C%BA%E7%8B%AC%E7%AB%8B%E5%BC%8F%E9%94%AE%E7%9B%98%E5%AE%9E%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[实验内容独立式键盘，4个按键，编号0-3，按下一个按键，LED显示其键号(非中断) 实验环境 uVision 5Protues 8 Professional 实验元器件 单片机(AT89C51)按键(button)共阳极数码管灯(7SEG-COM-AN-BULE)电阻(res) 实验原理图 程序12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;reg51.h&gt;#define uchar unsigned charuchar code seg[]=&#123;0xc0,0xf9,0xa4,0xb0&#125;;sbit S0=P1^0;sbit S1=P1^1;sbit S2=P1^2;sbit S3=P1^3;uchar key;void key_scan();void delay10ms();void main()&#123; key=0; while(1)&#123; key_scan(); P2=seg[key]; &#125;&#125;void key_scan()&#123; P1=0xff; if((P1&amp;0x0f)!=0x0f)&#123; delay10ms(); if(S0==0) key=0; if(S1==0) key=1; if(S2==0) key=2; if(S3==0) key=3; &#125;&#125;//防抖消除void delay10ms()&#123; uchar i,j; for(i=0;i&lt;100;i++)&#123; for(j=0;j&lt;100;j++); &#125;&#125;]]></content>
+      <categories>
+        <category>单片机</category>
+      </categories>
+      <tags>
+        <tag>单片机实验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[单片机单个数码管显示实验]]></title>
+    <url>%2F2019%2F03%2F06%2F%E5%8D%95%E7%89%87%E6%9C%BA%E5%8D%95%E4%B8%AA%E6%95%B0%E7%A0%81%E7%AE%A1%E6%98%BE%E7%A4%BA%E5%AE%9E%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[实验内容单个数码管显示，数码管上轮流显示0-9，间隔0.5s 实验环境 uVision 5Protues 8 Professional 实验元器件 单片机(AT89C51)共阳极数码管灯(7SEG-COM-AN-BULE)电阻(res) 实验原理图 程序123456789101112131415161718192021222324#include&lt;reg51.h&gt;#define uchar unsigned charuchar code seg[]=&#123;0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90&#125;;//延时函数void delay(int t);void main()&#123; uchar i=0; while(1)&#123; i=i%10; P1=seg[i]; delay(500); i++; &#125;&#125;void delay(int t)&#123; uchar i; while(t--)&#123; for(i=0;i&lt;120;i++); &#125;&#125;]]></content>
+      <categories>
+        <category>单片机</category>
+      </categories>
+      <tags>
+        <tag>单片机实验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[单片机定时器实验]]></title>
+    <url>%2F2019%2F03%2F06%2F%E5%8D%95%E7%89%87%E6%9C%BA%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AE%9E%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[实验内容8个LED闪烁，点亮时间0.2s，熄灭时间0.2s。要求用定时器中断实现。 实验环境 uVision 5Protues 8 Professional 实验元器件 单片机(AT89C51)LED灯(LED-YELLOW)电阻(res) 实验原理图 程序123456789101112131415161718192021222324#include&lt;reg51.h&gt;//表示延时200毫秒，即0.2秒int i=200;void main()&#123; TMOD=0x01; TH0=0xfc; TL0=0x18; EA=1; ET0=1; TR0=1; while(1);&#125;void timer0() interrupt 1&#123; TH0=0xfc; TL0=0x18; i--; if(i&lt;=0)&#123; P1=~P1; i=200; &#125;&#125;]]></content>
+      <categories>
+        <category>单片机</category>
+      </categories>
+      <tags>
+        <tag>单片机实验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[单片机外部中断实验]]></title>
+    <url>%2F2019%2F03%2F06%2F%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD%E5%AE%9E%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[实验内容单片机接8个led，初始状态下led全部熄灭，每按一次按键，led改变状态（即按一下全灭，再按一下全亮），要求用外部中断实现。 实验环境 uVision 5Protues 8 Professional 实验元器件 单片机(AT89C51)按键(button)LED灯(LED-YELLOW)电阻(res) 实验原理图 程序1234567891011121314151617181920#include&lt;reg51.h&gt;#include&lt;intrins.h&gt;#define uchar unsigned char#define uint unsigned intvoid main()&#123; //初始状态八个led全灭 P1=0xff; EA=1; EX0=1; IT0=1; while(1);&#125;//中断函数void int0() interrupt 0 using 1&#123; EX0=0; P1=~P1; EX0=1;&#125;]]></content>
+      <categories>
+        <category>单片机</category>
+      </categories>
+      <tags>
+        <tag>单片机实验</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[单片机流水灯实验]]></title>
     <url>%2F2019%2F03%2F06%2F%E5%8D%95%E7%89%87%E6%9C%BA%E6%B5%81%E6%B0%B4%E7%81%AF%E5%AE%9E%E9%AA%8C%2F</url>
-    <content type="text"><![CDATA[实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional 实验电路图 程序123456789101112131415161718192021#include&lt;reg51.h&gt;#include&lt;intrins.h&gt;#define uchar unsigned char#define uint unsigned int//延时函数，延时 t msvoid delay(uint t)&#123; uchar i; while(t--)&#123; for(i=0;i&lt;120;++i); &#125;&#125;void main()&#123; P1=0xfe; while(1)&#123; //延时0.5秒 delay(500); P1=_crol_(P1,1); &#125;&#125;]]></content>
+    <content type="text"><![CDATA[实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional 实验元器件 单片机(AT89C51);LED灯(LED-YELLOW);电阻(res) 实验电路图 程序123456789101112131415161718192021#include&lt;reg51.h&gt;#include&lt;intrins.h&gt;#define uchar unsigned char#define uint unsigned int//延时函数，延时 t msvoid delay(uint t)&#123; uchar i; while(t--)&#123; for(i=0;i&lt;120;++i); &#125;&#125;void main()&#123; P1=0xfe; while(1)&#123; //延时0.5秒 delay(500); P1=_crol_(P1,1); &#125;&#125;]]></content>
       <categories>
         <category>单片机</category>
       </categories>
