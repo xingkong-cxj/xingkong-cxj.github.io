@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[200. 岛屿的个数]]></title>
+    <url>%2F2019%2F04%2F02%2F200-%E5%B2%9B%E5%B1%BF%E7%9A%84%E4%B8%AA%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[200. 岛屿的个数给定一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。 示例 1: 输入:11110110101100000000输出: 1 示例 2: 输入:11000110000010000011 输出: 3 思路连通块问题。就是给定一个图，求连通分量的数目。输入的数据可以用二维的数组或二维向量储存。每次从“1”的块（即“陆地”）出发，遍历与其相连的“陆地”，并将遍历过的“陆地”的值置为“0”，表示其与“海洋”一样，无须遍历，以避免多次访问同一个“块”。遍历的算法可以使用DFS遍历或BFS遍历。 代码DFS遍历123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051//执行时间20ms,内存消耗10.5MB#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;using namespace std;class Solution &#123;public: int numIslands(vector&lt;vector&lt;char&gt;&gt;&amp; grid) &#123; int cnt=0; for(int i=0; i&lt;grid.size(); i++)&#123; for(int j=0; j&lt;grid[i].size(); j++)&#123; if(grid[i][j] != '0')&#123; cnt++; dfs(grid, i, j); &#125; &#125; &#125; return cnt; &#125; void dfs(vector&lt;vector&lt;char&gt;&gt;&amp; grid,int x,int y)&#123; if( x&lt;0 || x&gt;=grid.size() || y&lt;0 || y&gt;=grid[x].size() ) return; if( grid[x][y] =='0' ) return; grid[x][y] = '0'; dfs(grid, x-1, y) ; dfs(grid, x+1, y) ; dfs(grid, x, y-1) ; dfs(grid, x, y+1) ; &#125;&#125;;int main()&#123; freopen("input", "r", stdin); freopen("output", "w", stdout); char str; vector&lt; vector&lt; char &gt; &gt; a; vector&lt; char &gt; t; while( cin.get(str) )&#123; if(str!='\n') t.push_back(str); else&#123; a.push_back(t); t.clear(); &#125; &#125; Solution s; cout &lt;&lt; s.numIslands(a) &lt;&lt; endl;&#125; BFS遍历1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374// 在Leetcode上只通过了38个测试用例，错误为超时#include&lt;iostream&gt;#include&lt;vector&gt;#include&lt;queue&gt;#include&lt;cmath&gt;#include&lt;string&gt;using namespace std;class Solution &#123;private: int count=0; pair&lt;int,int&gt; subnode; pair&lt;int, int&gt; node; int m[4][2]=&#123;1,0,0,1,-1,0,0,-1&#125;;public: int numIslands(vector&lt;vector&lt;char&gt;&gt;&amp; grid) &#123; for(int i=0; i&lt;grid.size(); i++)&#123; for(int j=0; j&lt;grid[i].size(); j++)&#123; if( grid[i][j] == '0' ) continue; else &#123; node.first = i; node.second = j; bfs(grid, node); count++; &#125; &#125; &#125; return count; &#125;private: void bfs(vector&lt;vector&lt;char&gt;&gt;&amp; grid, pair&lt;int,int&gt;&amp; node )&#123; queue&lt; pair&lt;int ,int&gt; &gt; q; pair&lt;int, int&gt; qhead; q.push( node ); while( !q.empty() )&#123; qhead = q.front(); grid[ qhead.first ][ qhead.second ]='0'; q.pop(); for(int i=0; i&lt;4; i++)&#123; int x = qhead.first + m[i][0]; int y = qhead.second + m[i][1]; if( x&lt;0 || x&gt;=grid.size() || y&lt;0 || y&gt;=grid[x].size() ) continue; if( grid[x][y] == '1')&#123; subnode.first = x; subnode.second = y; q.push( subnode ); &#125; &#125; &#125; &#125;&#125;;int main()&#123; freopen("input2", "r", stdin); freopen("output", "w", stdout); char str; vector&lt; vector&lt; char &gt; &gt; a; vector&lt; char &gt; t; while( cin.get(str) )&#123; if(str!='\n') t.push_back(str); else&#123; a.push_back(t); t.clear(); &#125; &#125; Solution s; cout &lt;&lt; s.numIslands(a) &lt;&lt; endl;&#125; BFS遍历（修改）12345678910111213141516171819202122//与上面相比，仅仅是修改了grid[x][y]='0'的位置//执行用时36ms，内存消耗11MBvoid bfs(vector&lt;vector&lt;char&gt;&gt;&amp; grid,pair&lt;int,int&gt;&amp; node )&#123; queue&lt; pair&lt;int ,int&gt; &gt; q; pair&lt;int, int&gt; qhead; q.push( node ); while( !q.empty() )&#123; qhead = q.front(); q.pop(); for(int i=0; i&lt;4; i++)&#123; int x = qhead.first + m[i][0]; int y = qhead.second + m[i][1]; if( x&lt;0 || x&gt;=grid.size() || y&lt;0 || y&gt;=grid[x].size() ) continue; if( grid[x][y] == '1')&#123; subnode.first = x; subnode.second = y; q.push( subnode ); grid[ x ][ y ]='0'; &#125; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>Leetcode解题报告</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>图</tag>
+        <tag>DFS</tag>
+        <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F03%2F30%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[单片机独立式键盘实验]]></title>
     <url>%2F2019%2F03%2F06%2F%E5%8D%95%E7%89%87%E6%9C%BA%E7%8B%AC%E7%AB%8B%E5%BC%8F%E9%94%AE%E7%9B%98%E5%AE%9E%E9%AA%8C%2F</url>
     <content type="text"><![CDATA[实验内容独立式键盘，4个按键，编号0-3，按下一个按键，LED显示其键号(非中断) 实验环境 uVision 5Protues 8 Professional 实验元器件 单片机(AT89C51)按键(button)共阳极数码管灯(7SEG-COM-AN-BULE)电阻(res) 实验原理图 程序12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;reg51.h&gt;#define uchar unsigned charuchar code seg[]=&#123;0xc0,0xf9,0xa4,0xb0&#125;;sbit S0=P1^0;sbit S1=P1^1;sbit S2=P1^2;sbit S3=P1^3;uchar key;void key_scan();void delay10ms();void main()&#123; key=0; while(1)&#123; key_scan(); P2=seg[key]; &#125;&#125;void key_scan()&#123; P1=0xff; if((P1&amp;0x0f)!=0x0f)&#123; delay10ms(); if(S0==0) key=0; if(S1==0) key=1; if(S2==0) key=2; if(S3==0) key=3; &#125;&#125;//防抖消除void delay10ms()&#123; uchar i,j; for(i=0;i&lt;100;i++)&#123; for(j=0;j&lt;100;j++); &#125;&#125;]]></content>
@@ -66,10 +85,5 @@
         <tag>PTA</tag>
         <tag>Basic Level</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F02%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
