@@ -100,27 +100,25 @@
 
 
 
-  <meta name="description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51);LED灯(LED-YELLOW);电阻(res)  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;l">
-<meta name="keywords" content="单片机实验">
+  <meta name="description" content="背景​近日正在阅读《编程珠玑(第2版)》，希望自己能有所收获。《编程珠玑》的内容丰富，每章的后面都有一定量的习题。这篇文章不是为了记录习题的答案而写，仅仅会包含我在学习中觉得对自己有帮助和我觉得有趣的内容。 问题描述输入一个最多包含n个正整数的文件，每个数都小于n，其中$n = 10^7$。如果在输入文件中有任何整数重复出现就是致命错误。没有其他数据与该整数相关联。 输出按升序排列的输入整数的列表">
+<meta name="keywords" content="编程珠玑,排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单片机流水灯实验">
-<meta property="og:url" content="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/index.html">
+<meta property="og:title" content="《编程珠玑(第2版)》 第一章">
+<meta property="og:url" content="https://xingkong-cxj.github.io/2019/08/09/《编程珠玑-第2版-》-第一章/index.html">
 <meta property="og:site_name" content="书屋迷宫">
-<meta property="og:description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51);LED灯(LED-YELLOW);电阻(res)  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;l">
+<meta property="og:description" content="背景​近日正在阅读《编程珠玑(第2版)》，希望自己能有所收获。《编程珠玑》的内容丰富，每章的后面都有一定量的习题。这篇文章不是为了记录习题的答案而写，仅仅会包含我在学习中觉得对自己有帮助和我觉得有趣的内容。 问题描述输入一个最多包含n个正整数的文件，每个数都小于n，其中$n = 10^7$。如果在输入文件中有任何整数重复出现就是致命错误。没有其他数据与该整数相关联。 输出按升序排列的输入整数的列表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/实验原理图.png">
-<meta property="og:updated_time" content="2019-03-05T16:52:41.270Z">
+<meta property="og:updated_time" content="2019-08-09T16:16:57.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单片机流水灯实验">
-<meta name="twitter:description" content="实验内容做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组） 实验环境 uVision 5Protues 8 Professional  实验元器件 单片机(AT89C51);LED灯(LED-YELLOW);电阻(res)  实验电路图 程序123456789101112131415161718192021#include&amp;lt;reg51.h&amp;gt;#include&amp;l">
-<meta name="twitter:image" content="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/实验原理图.png">
+<meta name="twitter:title" content="《编程珠玑(第2版)》 第一章">
+<meta name="twitter:description" content="背景​近日正在阅读《编程珠玑(第2版)》，希望自己能有所收获。《编程珠玑》的内容丰富，每章的后面都有一定量的习题。这篇文章不是为了记录习题的答案而写，仅仅会包含我在学习中觉得对自己有帮助和我觉得有趣的内容。 问题描述输入一个最多包含n个正整数的文件，每个数都小于n，其中$n = 10^7$。如果在输入文件中有任何整数重复出现就是致命错误。没有其他数据与该整数相关联。 输出按升序排列的输入整数的列表">
 
 
 
 
 
 
-  <link rel="canonical" href="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/">
+  <link rel="canonical" href="https://xingkong-cxj.github.io/2019/08/09/《编程珠玑-第2版-》-第一章/">
 
 
 
@@ -130,7 +128,7 @@
   };
 </script>
 
-  <title>单片机流水灯实验 | 书屋迷宫</title>
+  <title>《编程珠玑(第2版)》 第一章 | 书屋迷宫</title>
   
 
 
@@ -358,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xingkong-cxj.github.io/2019/03/06/单片机流水灯实验/">
+    <link itemprop="mainEntityOfPage" href="https://xingkong-cxj.github.io/2019/08/09/《编程珠玑-第2版-》-第一章/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xingkong_cxj">
@@ -375,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">单片机流水灯实验
+          <h1 class="post-title" itemprop="name headline">《编程珠玑(第2版)》 第一章
 
               
             
@@ -401,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2019-03-06 00:21:14" itemprop="dateCreated datePublished" datetime="2019-03-06T00:21:14+08:00">2019-03-06</time>
+              <time title="创建时间：2019-08-09 20:45:54" itemprop="dateCreated datePublished" datetime="2019-08-09T20:45:54+08:00">2019-08-09</time>
             
 
             
@@ -419,7 +417,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/单片机/" itemprop="url" rel="index"><span itemprop="name">单片机</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/编程珠玑/" itemprop="url" rel="index"><span itemprop="name">编程珠玑</span></a></span>
 
                 
                 
@@ -461,15 +459,19 @@
       
 
       
-        <h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>做一个单向流水灯，8个led灯由上向下轮流点亮，间隔0.5秒.（不使用数组）</p>
-<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><blockquote>
-<p>uVision 5<br>Protues 8 Professional</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>​近日正在阅读《编程珠玑(第2版)》，希望自己能有所收获。《编程珠玑》的内容丰富，每章的后面都有一定量的习题。这篇文章不是为了记录习题的答案而写，仅仅会包含我在学习中觉得对自己有帮助和我觉得有趣的内容。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><strong>输入</strong><br>一个最多包含n个正整数的文件，每个数都小于n，其中$n = 10^7$。如果在输入文件中有任何整数重复出现就是致命错误。没有其他数据与该整数相关联。</p>
+<p><strong>输出</strong><br>按升序排列的输入整数的列表</p>
+<p><strong>约束</strong><br>最多有（大约）1MB的内存空间可用，有充足的磁盘存储空间可用。运行时间最多几分钟，运行时间为10秒就不需要进一步优化了。</p>
+<h2 id="简单分析"><a href="#简单分析" class="headerlink" title="简单分析"></a>简单分析</h2><p>&emsp;&emsp;这个问题的难点是内存空间的限制，其次是时间的限制。《编程珠玑》中给的思路是将数据集合用位图或者位向量表示。</p>
+<p>&emsp;&emsp;使用位图表示1000万个数，需要125万字节。如果问题的约束严格限制在1MB以内，可以采用两趟算法。即第一趟排序0~49999999的数字，第二趟排序5000000~9999999中间的数据。使用C语言来实现的话，关键点只需将存储数据的数组的大小设置成5000000就行。k趟算法同理，时间开销变成了kn，空间开销变成n/k。</p>
+<p>&emsp;&emsp;下面给出的程序，没有严格考虑内存在1MB以内。只是用位图实现了排序。</p>
+<h2 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h2><p>我是用python代码自动生成测试数据的文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件名：dataGenerator.py</span></span><br><span class="line"><span class="comment"># 示例：  dataGenerator.py 10000 1</span></span><br><span class="line"><span class="comment"># 示例表示生成由10000个数据构成的文件，并且每个数据最多出现1次</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">args = sys.argv</span><br><span class="line">k = args[<span class="number">1</span>]</span><br><span class="line">max_of_per_num = eval(args[<span class="number">2</span>])</span><br><span class="line">N = <span class="number">10000000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(k.isdigit() <span class="keyword">and</span> eval(k)&lt;N*max_of_per_num <span class="keyword">and</span> eval(k)&gt;<span class="number">0</span> <span class="keyword">and</span> max_of_per_num &lt; <span class="number">16</span> <span class="keyword">and</span> max_of_per_num &gt; <span class="number">0</span>):</span><br><span class="line">    file = open(<span class="string">"data"</span>,<span class="string">"w"</span>)</span><br><span class="line">    x=list(range(N))</span><br><span class="line">    x=x*max_of_per_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,eval(k)):</span><br><span class="line">        temp = random.randint(i,N*max_of_per_num<span class="number">-1</span>)</span><br><span class="line">        x[i],x[temp]=x[temp],x[i]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,eval(k)):</span><br><span class="line">        file.write(str(x[i])+<span class="string">"\n"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"参数输入错误，请输入测试用例的数字个数（小于 “1000万*每个数的次数” 的正整数）和每个数最多出现的次数（不超过15，含15）。例如 dataGenerator.py 1000 1！"</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BITSPERWORD 32</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SHIFT 5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MASK 0x1F</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10000000</span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1</span>+N/BITSPERWORD];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;        a[i &gt;&gt; SHIFT] |=  (<span class="number">1</span>&lt;&lt;(i &amp; MASK)); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clr</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;        a[i &gt;&gt; SHIFT] &amp;= ~(<span class="number">1</span>&lt;&lt;(i &amp; MASK)); &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123; <span class="keyword">return</span> a[i &gt;&gt; SHIFT] &amp;   (<span class="number">1</span>&lt;&lt;(i &amp; MASK)); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// freopen("data","r",stdin);</span></span><br><span class="line">    <span class="comment">// freopen ("output", "w", stdout);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        clr(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;i)!=EOF)&#123;</span><br><span class="line">        <span class="built_in">set</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(test(i))</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>&emsp;&emsp;第一章习题的第6题，将原问题中每个整数最多出现一次，改成每个整数最多出现10，其他条件不变的情况下应该怎么处理。<br>&emsp;&emsp;对于上述问题，只需要改变一下位向量的实现。使用每4位表示一个整数。下面给出的程序，忽略了内存大小的约束，用位图实现了每个整数最多出现10次时的排序算法。其中在用C语言实现算法时遇到了一个有趣的BUG。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BITSPERWORD 32</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SHIFT 3</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MASK 0x07</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BITSPERNUM 4</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SHOWMAX 10</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> a[<span class="number">1</span>+N/(BITSPERWORD/BITSPERNUM)];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;        a[i &gt;&gt; SHIFT] +=  (<span class="number">1</span>&lt;&lt;((i &amp; MASK)*BITSPERNUM)); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clr</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;        a[i &gt;&gt; SHIFT] &amp;= ~(<span class="number">0x0f</span>&lt;&lt;((i &amp; MASK)*BITSPERNUM)); &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123; <span class="keyword">return</span> ( a[i &gt;&gt; SHIFT] &amp;   (<span class="number">0x0f</span>&lt;&lt;((i &amp; MASK)*BITSPERNUM)) ) &gt;&gt; ((i &amp; MASK)*BITSPERNUM); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    freopen(<span class="string">"data"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen (<span class="string">"output"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i,j,c;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        clr(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;i)!=EOF)&#123;</span><br><span class="line">        <span class="built_in">set</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        c = test(i);</span><br><span class="line">        <span class="keyword">for</span> (j=<span class="number">0</span>;j&lt;c;j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：上述程序在实现过程中遇到一个BUG,那就是在一开始用int定义数组a。这导致在使用数据测试时，输出的整数个数少于输入的整数个数，即出现有测试数据“丢失”的情况，而且这个BUG只是有时出现，并且数据量越大，出现的概率越大。经过分析，发现问题主要出在void set(int i)这个函数，这个函数中使用了加法操作，这导致这种情况，1000 0000 0000 0001原本表示a,b,c,d分别出现了8，0，0，1次，而这是读入的数据又是d时，调用set函数，1000 0000 0000 0001 + 0000 0000 0000 0001 ，返回的值却是0。因为最高位是符号位，用十进制来看，set函数实际上返回的是(-1+1)的值</p>
 </blockquote>
-<h2 id="实验元器件"><a href="#实验元器件" class="headerlink" title="实验元器件"></a>实验元器件</h2><blockquote>
-<p>单片机(AT89C51);<br>LED灯(LED-YELLOW);<br>电阻(res)</p>
-</blockquote>
-<h2 id="实验电路图"><a href="#实验电路图" class="headerlink" title="实验电路图"></a>实验电路图</h2><p><img src="实验原理图.png" alt=""></p>
-<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;reg51.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;intrins.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> uchar unsigned char</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> uint unsigned int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//延时函数，延时 t ms</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delay</span><span class="params">(uint t)</span></span>&#123;</span><br><span class="line">    uchar i;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">120</span>;++i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    P1=<span class="number">0xfe</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//延时0.5秒</span></span><br><span class="line">        delay(<span class="number">500</span>);</span><br><span class="line">        P1=_crol_(P1,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -493,7 +495,10 @@
       
         <div class="post-tags">
           
-            <a href="/tags/单片机实验/" <i="" class="fa fa-tag"> 单片机实验
+            <a href="/tags/编程珠玑/" <i="" class="fa fa-tag"> 编程珠玑
+            </a>
+          
+            <a href="/tags/排序/" <i="" class="fa fa-tag"> 排序
             </a>
           
         </div>
@@ -533,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/1001-害死人不偿命的-3n-1-猜想/" rel="next" title="1001 害死人不偿命的(3n+1)猜想">
-                <i class="fa fa-chevron-left"></i> 1001 害死人不偿命的(3n+1)猜想
+              <a href="/2019/04/02/200-岛屿的个数/" rel="next" title="200. 岛屿的个数">
+                <i class="fa fa-chevron-left"></i> 200. 岛屿的个数
               </a>
             
           </div>
@@ -542,10 +547,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/06/单片机外部中断实验/" rel="prev" title="单片机外部中断实验">
-                单片机外部中断实验 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -704,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验元器件"><span class="nav-number">3.</span> <span class="nav-text">实验元器件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验电路图"><span class="nav-number">4.</span> <span class="nav-text">实验电路图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序"><span class="nav-number">5.</span> <span class="nav-text">程序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">2.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单分析"><span class="nav-number">3.</span> <span class="nav-text">简单分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试数据"><span class="nav-number">4.</span> <span class="nav-text">测试数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言实现"><span class="nav-number">5.</span> <span class="nav-text">C语言实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展"><span class="nav-number">6.</span> <span class="nav-text">拓展</span></a></li></ol></div>
             
 
           </div>
@@ -1231,6 +1232,53 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
   
 
 
