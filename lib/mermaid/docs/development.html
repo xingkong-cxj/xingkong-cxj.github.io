@@ -1,0 +1,64 @@
+<h1 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h1><p><strong>Edit this Page</strong> <a href="https://github.com/mermaid-js/mermaid/blob/develop/docs/development.md" target="_blank" rel="noopener"><img src="./img/GitHub-Mark-32px.png" alt="N|Solid"></a></p>
+<h2 id="Updating-the-documentation"><a href="#Updating-the-documentation" class="headerlink" title="Updating the documentation"></a>Updating the documentation</h2><p>Please continue writing documentation at <a href="https://github.com/mermaid-js/mermaid/tree/develop/docs" target="_blank" rel="noopener">mermaid-js/mermaid/docs</a>.</p>
+<p>We publish documentation using GitHub Pages.</p>
+<h3 id="Questions-and-or-suggestions"><a href="#Questions-and-or-suggestions" class="headerlink" title="Questions and/or suggestions ?"></a>Questions and/or suggestions ?</h3><p>After logging in at <a href="https://www.github.com/" target="_blank" rel="noopener">GitHub.com</a>, open or append to an issue <a href="https://github.com/mermaid-js/mermaid/issues?q=is%253Aissue+is%253Aopen+label%253A%22Area%253A+Documentation%22" target="_blank" rel="noopener">using the GitHub issue tracker of the mermaid-js repository</a>.</p>
+<h3 id="How-to-contribute-a-suggestion"><a href="#How-to-contribute-a-suggestion" class="headerlink" title="How to contribute a suggestion"></a>How to contribute a suggestion</h3><p>Markdown is used to format the text, for more information about Markdown <a href="https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax" target="_blank" rel="noopener">see the GitHub Markdown help page</a>.</p>
+<p>If you want to use an editor on your own computer, you may follow these steps:</p>
+<ul>
+<li>Find the Markdown file (.md) to edit in the <a href="https://github.com/mermaid-js/mermaid/tree/develop/docs" target="_blank" rel="noopener">mermaid-js/mermaid/docs</a> directory on the develop branch.</li>
+<li>Create a fork of the develop branch.</li>
+<li>Make changes or add new documentation.</li>
+<li>Commit changes to your fork and push it to GitHub.</li>
+<li>Create a pull request of your fork.</li>
+</ul>
+<p>If you don’t have such editor on your computer, you may follow these steps:</p>
+<ul>
+<li>Login at <a href="https://www.github.com/" target="_blank" rel="noopener">GitHub.com</a>.</li>
+<li>Navigate to <a href="https://github.com/mermaid-js/mermaid/tree/develop/docs" target="_blank" rel="noopener">mermaid-js/mermaid/docs</a>.</li>
+<li>To edit a file, click the pencil icon at the top-right of the file contents panel.</li>
+<li>Describe what you changed in the “Propose file change” section, located at the bottom of the page.</li>
+<li>Submit your changes by clicking the button “Propose file change” at the bottom (by automatic creation of a fork and a new branch).</li>
+<li>Create a pull request of your newly forked branch, by clicking the green “Create pull request” button.</li>
+</ul>
+<h2 id="How-to-add-a-new-diagram-type"><a href="#How-to-add-a-new-diagram-type" class="headerlink" title="How to add a new diagram type"></a>How to add a new diagram type</h2><h3 id="Step-1-Grammar-amp-Parsing"><a href="#Step-1-Grammar-amp-Parsing" class="headerlink" title="Step 1: Grammar &amp; Parsing"></a>Step 1: Grammar &amp; Parsing</h3><h4 id="Grammar"><a href="#Grammar" class="headerlink" title="Grammar"></a>Grammar</h4><p>This would be to define a jison grammar for the new diagram type. That should start with a way to identify that the text in the mermaid tag is a diagram of that type. Create a new folder under diagrams for your new diagram type and a parser folder in it. This leads us to step 2.</p>
+<p>For instance:</p>
+<ul>
+<li>the flowchart starts with the keyword graph.</li>
+<li>the sequence diagram starts with the keyword sequenceDiagram</li>
+</ul>
+<h4 id="Store-data-found-during-parsing"><a href="#Store-data-found-during-parsing" class="headerlink" title="Store data found during parsing"></a>Store data found during parsing</h4><p>There are some jison specific sub steps here where the parser stores the data encountered when parsing the diagram, this data is later used by the renderer. You can during the parsing call a object provided to the parser by the user of the parser. This object can be called during parsing for storing data.</p>
+<pre><code>statement
+    : &#39;participant&#39; actor  { $$=&#39;actor&#39;; }
+    | signal               { $$=&#39;signal&#39;; }
+    | note_statement       { $$=&#39;note&#39;;  }
+    | &#39;title&#39; message      { yy.setTitle($2);  }
+    ;</code></pre>
+<p>In the extract of the grammar above, it is defined that a call to the setTitle method in the data object will be done when parsing and the title keyword is encountered.</p>
+<blockquote>
+<p><strong>Info</strong> Make sure that the <code>parseError</code> function for the parser is defined and calling <code>mermaidPAI.parseError</code>. This way a common way of detecting parse errors is provided for the end-user.</p>
+</blockquote>
+<p>For more info look in the example diagram type:</p>
+<p>The <code>yy</code> object has the following function:</p>
+<pre><code class="javascript">exports.parseError = function(err, hash){
+   mermaidAPI.parseError(err, hash)
+};</code></pre>
+<p>when parsing the <code>yy</code> object is initialized as per below:</p>
+<pre><code class="javascript">var parser
+parser = exampleParser.parser
+parser.yy = db</code></pre>
+<h3 id="Step-2-Rendering"><a href="#Step-2-Rendering" class="headerlink" title="Step 2: Rendering"></a>Step 2: Rendering</h3><p>Write a renderer that given the data found during parsing renders the diagram. To look at an example look at sequendeRenderer.js rather then the flowchart renderer as this is a more generic example.</p>
+<p>Place the renderer in the diagram folder.</p>
+<h3 id="Step-3-Detection-of-the-new-diagram-type"><a href="#Step-3-Detection-of-the-new-diagram-type" class="headerlink" title="Step 3: Detection of the new diagram type"></a>Step 3: Detection of the new diagram type</h3><p>The second thing to do is to add the capability to detect the new new diagram to type to the detectType in utils.js. The detection should return a key for the new diagram type.</p>
+<h3 id="Step-4-The-final-piece-triggering-the-rendering"><a href="#Step-4-The-final-piece-triggering-the-rendering" class="headerlink" title="Step 4: The final piece - triggering the rendering"></a>Step 4: The final piece - triggering the rendering</h3><p>At this point when mermaid is trying to render the diagram, it will detect it as being of the new type but there will be no match when trying to render the diagram. To fix this add a new case in the switch statement in main.js:init this should match the diagram type returned from step #2. The code in this new case statement should call the renderer for the diagram type with the data found by the parser as an argument.</p>
+<h2 id="Usage-of-the-parser-as-a-separate-module"><a href="#Usage-of-the-parser-as-a-separate-module" class="headerlink" title="Usage of the parser as a separate module"></a>Usage of the parser as a separate module</h2><h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><pre><code class="javascript">var graph = require(&#39;./graphDb&#39;)
+var flow = require(&#39;./parser/flow&#39;)
+flow.parser.yy = graph</code></pre>
+<h3 id="Parsing"><a href="#Parsing" class="headerlink" title="Parsing"></a>Parsing</h3><pre><code class="javascript">flow.parser.parse(text)</code></pre>
+<h3 id="Data-extraction"><a href="#Data-extraction" class="headerlink" title="Data extraction"></a>Data extraction</h3><pre><code class="javascript">graph.getDirection()
+graph.getVertices()
+graph.getEdges()</code></pre>
+<p>The parser is also exposed in the mermaid api by calling:</p>
+<pre><code class="javascript">var parser = mermaid.getParser()</code></pre>
+<p>Note that the parse needs a graph object to store the data as per:</p>
+<pre><code class="javascript">flow.parser.yy = graph</code></pre>
+<p>Look at <code>graphDb.js</code> for more details on that object.</p>

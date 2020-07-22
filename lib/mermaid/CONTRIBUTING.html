@@ -1,0 +1,51 @@
+<h1 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h1><p>So you want to help? That’s great!</p>
+<p><img src="https://media.giphy.com/media/BlVnrxJgTGsUw/giphy.gif" alt="Image of happy people jumping with excitement"></p>
+<p>Here are a few things to know to get you started on the right path.</p>
+<h2 id="Committing-code"><a href="#Committing-code" class="headerlink" title="Committing code"></a>Committing code</h2><p>We make all changes via pull requests. As we have many pull requests from developers new to mermaid, the current approach is to have <em>knsv, Knut Sveidqvist</em> as a main reviewer of changes and merging pull requests. More precisely like this:</p>
+<ul>
+<li>Large changes reviewed by knsv or other developer asked to review by knsv</li>
+<li>Smaller low-risk changes like dependecies, documentation etc can be merged by active collaborators</li>
+<li>documentation (updates to the docs folder is also allowed via direct commits)</li>
+</ul>
+<p>To commit code, create a branch, let it start with the type like feature or bug followed by the issue number for reference and some describing text.</p>
+<p>One example:</p>
+<p><code>feature/945_state_diagrams</code></p>
+<p>Another:</p>
+<p><code>bug/123_nasty_bug_branch</code></p>
+<h2 id="Committing-documentation"><a href="#Committing-documentation" class="headerlink" title="Committing documentation"></a>Committing documentation</h2><p>Less strict here, it is ok to commit directly in the develop branch if you are a collaborator.</p>
+<h2 id="Branching"><a href="#Branching" class="headerlink" title="Branching"></a>Branching</h2><p>Going forward we will use a git flow inspired approach to branching. So development is done in develop, to do the development in the develop.</p>
+<p>Once development is done we branch a release branch from develop for testing.</p>
+<p>Once the release happens we merge the release branch to master and kill the release branch.</p>
+<p>This means… <strong>branch off your pull request from develop</strong></p>
+<h2 id="Content-of-a-pull-request"><a href="#Content-of-a-pull-request" class="headerlink" title="Content of a pull request"></a>Content of a pull request</h2><p>A new feature has been born. Great! But without the steps below it might just … fade away …</p>
+<h3 id="Add-unit-tests-for-the-parsing-part"><a href="#Add-unit-tests-for-the-parsing-part" class="headerlink" title="Add unit tests for the parsing part"></a><strong>Add unit tests for the parsing part</strong></h3><p>This is important so that, if someone else does a change to the grammar that does not know about this great feature, gets notified early on when that change breaks the parser. Another important aspect is that without proper parsing tests refactoring is pretty much impossible.</p>
+<h3 id="Add-e2e-tests"><a href="#Add-e2e-tests" class="headerlink" title="Add e2e tests"></a><strong>Add e2e tests</strong></h3><p>This tests the rendering and visual apearance of the diagram. This ensures that the rendering of that feature in the e2e will be reviewed in the release process going forward. Less chance that it breaks!</p>
+<p>To start working with the e2e tests, run <code>yarn dev</code> to start the dev server, after that start cypress by running <code>cypress open</code> in the mermaid folder. (Make sure you have path to cypress in order, the binary is located in node_modules/.bin).</p>
+<p>The rendering tests are very straightforward to create. There is a function imgSnapshotTest. This function takes a diagram in text form, the mermaid options and renders that diagram in cypress.</p>
+<p>When running in ci it will take a snapshot of the rendered diagram and compare it with the snapshot from last build and flag for review it if it differs.</p>
+<p>This is what a rendering test looks like:</p>
+<pre><code>  it(&#39;should render forks and joins&#39;, () =&gt; {
+    imgSnapshotTest(
+      `
+    stateDiagram
+    state fork_state &amp;lt;&amp;lt;fork&amp;gt;&amp;gt;
+      [*] --&gt; fork_state
+      fork_state --&gt; State2
+      fork_state --&gt; State3
+
+      state join_state &amp;lt;&amp;lt;join&amp;gt;&amp;gt;
+      State2 --&gt; join_state
+      State3 --&gt; join_state
+      join_state --&gt; State4
+      State4 --&gt; [*]
+    `,
+      { logLevel: 0 }
+    );
+    cy.get(&#39;svg&#39;);
+  });</code></pre>
+<h3 id="Add-documentation-for-it"><a href="#Add-documentation-for-it" class="headerlink" title="Add documentation for it"></a><strong>Add documentation for it</strong></h3><p>Finally, if it is not in the documentation, no one will know about it and then <strong>no one will use it</strong>. Wouldn’t that be sad? With all the effort that was put into the feature?</p>
+<p>The docs are located in the docs folder and are ofc written in markdown. Just pick the right section and start typing. If you want to add to the structure as in adding a new section and new file you do that via the _navbar.md.</p>
+<p>The changes in master is reflected in <a href="http://mermaid-js.github.io/mermaid/" target="_blank" rel="noopener">http://mermaid-js.github.io/mermaid/</a> once released the updates are commited to <a href="https://mermaid-js.github.io/#/" target="_blank" rel="noopener">https://mermaid-js.github.io/#/</a></p>
+<h2 id="Last-words"><a href="#Last-words" class="headerlink" title="Last words"></a>Last words</h2><p>Don’t get daunted if it is hard in the beginning. We have a great community with only encouraging words. So if you get stuck, ask for help and hints in the slack forum. If you want to show off something good, show it off there.</p>
+<p><a href="https://join.slack.com/t/mermaid-talk/shared_invite/enQtNzc4NDIyNzk4OTAyLWVhYjQxOTI2OTg4YmE1ZmJkY2Y4MTU3ODliYmIwOTY3NDJlYjA0YjIyZTdkMDMyZTUwOGI0NjEzYmEwODcwOTE" target="_blank" rel="noopener">Join our slack community if you want closer contact!</a></p>
+<p><img src="https://media.giphy.com/media/l49JHz7kJvl6MCj3G/giphy.gif" alt="Image of superhero wishing you good luck"></p>

@@ -1,0 +1,101 @@
+<h1 id="A-basic-mermaid-User-Guide-for-Beginners"><a href="#A-basic-mermaid-User-Guide-for-Beginners" class="headerlink" title="A basic mermaid User-Guide for Beginners"></a>A basic mermaid User-Guide for Beginners</h1><p>Creating diagrams and charts using mermaid code is simple.</p>
+<p>But how is the code turned into a diagram in a web page? This is done with the use of a mermaid renderer.</p>
+<p>The mermaid renderer is very accessible, in essence it is a piece of javascript that can be called. </p>
+<p>Most web browsers, such as Firefox, Chrome and Safari, can render mermaid, Internet Explorer however cannot. The web browser also needs access to the online mermaid renderer which it downloads from <a href="https://cdn.jsdelivr.net/npm/mermaid" target="_blank" rel="noopener">https://cdn.jsdelivr.net/npm/mermaid</a></p>
+<h2 id="For-beginners-there-are-three-relatively-easy-ways-you-can-use-mermaid"><a href="#For-beginners-there-are-three-relatively-easy-ways-you-can-use-mermaid" class="headerlink" title="For beginners, there are three relatively easy ways you can use mermaid:"></a>For beginners, there are three relatively easy ways you can use mermaid:</h2><ol>
+<li>Using the mermaid <a href="https://mermaid-js.github.io/mermaid-live-editor/" target="_blank" rel="noopener">live editor</a></li>
+<li>Using one of the many mermaid plugins</li>
+<li>Calling mermaid renderer with HTML, deployed in a friendly browser. </li>
+</ol>
+<h1 id="Following-either-of-these-examples-you-can-get-started-with-creating-your-own-diagrams-using-mermaid-code"><a href="#Following-either-of-these-examples-you-can-get-started-with-creating-your-own-diagrams-using-mermaid-code" class="headerlink" title="Following either of these examples, you can get started with creating your own diagrams using mermaid code."></a>Following either of these examples, you can get started with creating your own diagrams using mermaid code.</h1><h2 id="1-The-mermaid-live-editor"><a href="#1-The-mermaid-live-editor" class="headerlink" title="1. The mermaid live editor:"></a>1. The mermaid live editor:</h2><p> A great way to get started with mermaid is to visit <a href="https://mermaidjs.github.io/mermaid-live-editor" target="_blank" rel="noopener">The mermaid live editor</a>.</p>
+<p>In the <code>Code</code> section one can write or edit raw mermaid code, and instantly <code>Preview</code> the rendered result on the panel beside it.</p>
+<p><img src="./img/n00b-liveEditor.png" alt="Flowchart"> </p>
+<p>You can also copy the code from the code section and paste it into either a mermaid plugin or in inside an html file, which will be taught in numbers 2 and 3. </p>
+<p>It is also an easier way to develop diagrams. You can also click “Copy Markdown” to copy the markdown code for the diagram, that can then be pasted directly into your documentation. </p>
+<p><img src="./img/liveEditorOptions.png" alt="Flowchart"></p>
+<p>The <code>Mermaid configuration</code> is for controlling mermaid behaviour. An easy introduction to mermaid configuration is found in the <a href="n00b-advanced.md">Advanced usage</a> section. A complete configuration reference cataloguing default values is found on the <a href="https://mermaid-js.github.io/mermaid/#/Setup" target="_blank" rel="noopener">mermaidAPI</a> page.</p>
+<h2 id="2-Using-mermaid-plugins"><a href="#2-Using-mermaid-plugins" class="headerlink" title="2. Using mermaid plugins:"></a>2. Using mermaid plugins:</h2><p>Thanks to the growing popularity of mermaid, many plugins already exist which incorporate a mermaid renderer. An extensive list can be found <a href="./integrations.md">here</a>.</p>
+<p>One example in the list is the <a href="https://marketplace.atlassian.com/apps/1214124/mermaid-plugin-for-confluence?hosting=server&tab=overview" target="_blank" rel="noopener">Atlassian Confluence mermaid plugin</a> </p>
+<p>When the mermaid plugin is installed on a Confluence server, one can insert a mermaid object into any Confluence page.</p>
+<h1 id="Here-is-a-step-by-step-process-for-using-the-mermaid-Confluence-plugin"><a href="#Here-is-a-step-by-step-process-for-using-the-mermaid-Confluence-plugin" class="headerlink" title="Here is a step by step process for using the mermaid-Confluence plugin:"></a>Here is a step by step process for using the mermaid-Confluence plugin:</h1><hr>
+<ul>
+<li>In a Confluence page, Add Other macros.</li>
+</ul>
+<p><img src="./img/n00b-Confluence1.png" alt="Flowchart"></p>
+<hr>
+<ul>
+<li>Search for mermaid.</li>
+</ul>
+<p><img src="./img/n00b-Confluence2.png" alt="Flowchart"></p>
+<hr>
+<ul>
+<li>The mermaid object appears. Paste your mermaid code into it.</li>
+</ul>
+<p><img src="./img/n00b-Confluence3.png" alt="Flowchart"></p>
+<hr>
+<ul>
+<li>Save the page and the diagram appears.</li>
+</ul>
+<p><img src="./img/n00b-Confluence4.png" alt="Flowchart"></p>
+<hr>
+<h2 id="3-mermaid-using-any-web-server-or-just-a-browser"><a href="#3-mermaid-using-any-web-server-or-just-a-browser" class="headerlink" title="3. mermaid using any web server (or just a browser):"></a>3. mermaid using any web server (or just a browser):</h2><p>This method can be used with any common web server. Apache, IIS, nginx, node express […], you pick your favourite.</p>
+<p>We do not need to install anything on the server, apart from a program (like Notepad++) that can generate an html file, which is then deployed by a web browser (such as Firefox, Chrome, Safari, but not Internet Explorer). </p>
+<p>So if you want to really simplify things when testing this out, don’t use a web server at all but just create the file locally and drag it into your browser window. It is the browser which does all the work of rendering mermaid!</p>
+<h1 id="Here-are-instructions-for-creating-an-html-file-with-mermaid-code"><a href="#Here-are-instructions-for-creating-an-html-file-with-mermaid-code" class="headerlink" title="Here are instructions for creating an html file with mermaid code:"></a>Here are instructions for creating an html file with mermaid code:</h1><h1 id="Note-that-all-this-is-written-in-the-html-lt-body-gt-section-of-the-web-page"><a href="#Note-that-all-this-is-written-in-the-html-lt-body-gt-section-of-the-web-page" class="headerlink" title="Note that all this is written in the html &lt;body&gt; section of the web page."></a>Note that all this is written in the html <code>&lt;body&gt;</code> section of the web page.</h1><p>When writing the html file, we give the web browser three instructions inside the html code:</p>
+<p>a. A reference for fetching the online mermaid renderer, which is written in Javascript.</p>
+<p>b. The mermaid code for the diagram we want to create.</p>
+<p>c. The <code>mermaid.initialize()</code> command to start the rendering process. </p>
+<p>This is what needs to go into the html file:</p>
+<h1 id="a-The-reference-to-the-mermaid-renderer-has-to-be-contained-in-a-lt-script-src-gt-tag-like-so"><a href="#a-The-reference-to-the-mermaid-renderer-has-to-be-contained-in-a-lt-script-src-gt-tag-like-so" class="headerlink" title="a. The reference to the mermaid renderer has to be contained in a &lt;script src&gt; tag like so:"></a>a. The reference to the mermaid renderer has to be contained in a <code>&lt;script src&gt;</code> tag like so:</h1><pre><code>&lt;body&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<h1 id="b-The-embedded-mermaid-code-is-similarly-placed-inside-a-lt-div-gt-tag"><a href="#b-The-embedded-mermaid-code-is-similarly-placed-inside-a-lt-div-gt-tag" class="headerlink" title="b. The embedded mermaid code is similarly placed inside a &lt;div&gt; tag:"></a>b. The embedded mermaid code is similarly placed inside a <code>&lt;div&gt;</code> tag:</h1><pre><code>&lt;body&gt;
+  Here is a mermaid diagram:
+  &lt;div class=&quot;mermaid&quot;&gt;
+    graph TD
+    A[Client] --&gt; B[Load Balancer]
+    B --&gt; C[Server01]
+    B --&gt; D[Server02]
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>
+<p>(take note that every mermaid chart/graph/diagram, has to have separate <code>&lt;div&gt;</code> tags.)</p>
+<h1 id="c-When-initializing-mermaid-using-mermaid-initialize-mermaid-takes-all-the-lt-div-class-quot-mermaid-quot-gt-tags-it-can-find-in-the-html-body-and-starts-to-render-them-one-by-one-This-is-done-like-so"><a href="#c-When-initializing-mermaid-using-mermaid-initialize-mermaid-takes-all-the-lt-div-class-quot-mermaid-quot-gt-tags-it-can-find-in-the-html-body-and-starts-to-render-them-one-by-one-This-is-done-like-so" class="headerlink" title="c. When initializing mermaid using mermaid.initialize(), mermaid takes all the &lt;div class=&quot;mermaid&quot;&gt; tags it can find in the html body and starts to render them one by one. This is done like so:"></a>c. When initializing mermaid using <code>mermaid.initialize()</code>, mermaid takes all the <code>&lt;div class=&quot;mermaid&quot;&gt;</code> tags it can find in the html body and starts to render them one by one. This is done like so:</h1><pre><code>&lt;body&gt;
+  &lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<h1 id="Finally"><a href="#Finally" class="headerlink" title="Finally"></a><em>Finally</em></h1><h1 id="If-the-three-steps-mentioned-are-followed-you-will-end-up-with-something-like-this"><a href="#If-the-three-steps-mentioned-are-followed-you-will-end-up-with-something-like-this" class="headerlink" title="If the three steps mentioned are followed you will end up with something like this:"></a>If the three steps mentioned are followed you will end up with something like this:</h1><pre><code>&lt;html&gt;
+  &lt;body&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid@8.6.0/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;
+
+    Here is one mermaid diagram:
+    &lt;div class=&quot;mermaid&quot;&gt;
+      graph TD
+      A[Client] --&gt; B[Load Balancer]
+      B --&gt; C[Server1]
+      B --&gt; D[Server2]
+    &lt;/div&gt;
+
+    And here is another:
+    &lt;div class=&quot;mermaid&quot;&gt;
+      graph TD
+      A[Client] --&gt;|tcp_123| B(Load Balancer)
+      B --&gt;|tcp_456| C[Server1]
+      B --&gt;|tcp_456| D[Server2]
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h1 id="Save-this-to-an-html-file-and-open-it-with-a-browser-from-the-web-server-or-just-drag-it-into-your-web-browser-window-and-voila"><a href="#Save-this-to-an-html-file-and-open-it-with-a-browser-from-the-web-server-or-just-drag-it-into-your-web-browser-window-and-voila" class="headerlink" title="Save this to an html file and open it with a browser from the web server (or just drag it into your web browser window) and voila!"></a>Save this to an html file and open it with a browser from the web server (or just drag it into your web browser window) and voila!</h1><hr>
+<p><strong>Three additional comments from Knut Sveidqvist, creator of mermaid:</strong></p>
+<ul>
+<li><p>In early versions of mermaid, the <code>&lt;script src&gt;</code> tag was invoked in the <code>&lt;head&gt;</code> part of the web page. Nowdays we can place it directly in <code>&lt;body&gt;</code> as seen above. However, older parts of the documentation frequently reflects the previous way which still works.</p>
+</li>
+<li><p>We initialize the mermaid rendering with <code>mermaid.initialize()</code> directly in the html code. In principle this could be done through placing <code>mermaid.initialize()</code> inside of <code>mermaid.min.js</code>. We would then eliminate the need for this explicit line in the html. However, there are use cases where we do want to separate the two steps. Sometimes we want full control over when we start looking for <code>&lt;div&gt;</code>tags inside the web page with <code>mermaid.initialize()</code>, for example when we think that all <code>&lt;div&gt;</code> tags may not have been loaded by the time <code>mermaid.min.js</code> runs.</p>
+</li>
+<li><p>In the example above, <code>mermaid.min.js</code> is called using an absolute path. Even worse, the example includes the mermaid version number which of course will change as time goes by. However, the example makes it easy to understand what is going on - even though it is perhaps doomed in a way we do not want in a production environment. When going from testing mermaid out to getting serious with it, I would suggest one of the following approaches for calling <code>mermaid.min.js</code>:</p>
+<ol>
+<li>If you do not enter a specific version, you automatically get the latest one.</li>
+<li>If you really need a specific version, hard code it (this is rare but it happens).</li>
+<li>If you need to know the current mermaid version, replace a mermaid code block with the word <code>info</code> and the version will be returned like <a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiaW5mb1xuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9fQ==" target="_blank" rel="noopener">this</a></li>
+</ol>
+</li>
+</ul>

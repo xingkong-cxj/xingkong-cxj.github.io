@@ -1,0 +1,67 @@
+<h2 id="Directives"><a href="#Directives" class="headerlink" title="Directives"></a>Directives</h2><p><strong>Edit this Page</strong> <a href="./directives.md"><img src="./img/GitHub-Mark-32px.png" alt="N|Solid"></a></p>
+<h2 id="Directives-were-added-in-Version-8-6-0-Please-Read-it-for-more-information"><a href="#Directives-were-added-in-Version-8-6-0-Please-Read-it-for-more-information" class="headerlink" title="Directives were added in Version 8.6.0. Please Read it for more information."></a>Directives were added in <a href="/8.6.0_docs.md">Version 8.6.0</a>. Please Read it for more information.</h2><h2 id="Directives-1"><a href="#Directives-1" class="headerlink" title="Directives"></a>Directives</h2><p>With this version, directives are supported. Directives are divided in two sets, by priority. the first set, containing ‘init’ or ‘initialize’ directives take priority. While the other set, containing all other kinds of directives are considered only after ‘init’ and the graph-type declared.</p>
+<h4 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h4><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>init</td>
+<td>modifies configurations</td>
+<td>Directive</td>
+<td>Optional</td>
+<td>Any parameters not included in the secure array</td>
+</tr>
+</tbody></table>
+<p><strong>Notes:</strong></p>
+<p>init would be an argument-directive: %%{init: { <strong>insert argument here</strong>}}%%</p>
+<p>The json object that is passed as {<strong>argument</strong> } must be valid, quoted json or it will be ignored.</p>
+<p>The init/initialize directive is parsed early in the flow, enough to be able to re-initialize mermaid with a new configuration object. Example:</p>
+<pre><code>%%{init: { &#39;logLevel&#39;: &#39;debug&#39;, &#39;theme&#39;: &#39;dark&#39; } }%%
+graph &gt;
+A--&gt;B</code></pre>
+<p>will set the <code>logLevel</code> to <code>debug</code> and the <code>theme</code> to <code>dark</code> for a flowchart diagram.</p>
+<p>Note: ‘init’ or ‘initialize’ are both acceptable as init directives. Also note that init directives are coalesced. This means:</p>
+<pre><code>%%{init: { &#39;logLevel&#39;: &#39;debug&#39;, &#39;theme&#39;: &#39;forest&#39; } }%%
+%%{initialize: { &#39;logLevel&#39;: &#39;fatal&#39;, &quot;theme&quot;:&#39;dark&#39;, &#39;startOnLoad&#39;: true } }%%
+...</code></pre>
+<p>will result an init object looking like this:</p>
+<pre><code>{
+  logLevel: &#39;fatal&#39;,
+  theme: &#39;dark&#39;,
+  startOnLoad: true
+}</code></pre>
+<p>to be sent to <code>mermaid.initialize(...)</code></p>
+<h4 id="Other-directives"><a href="#Other-directives" class="headerlink" title="Other directives"></a>Other directives</h4><p>In this category are any directives that follow the graph type declaration. Essentially, these directives will not be processed early in the flow like the init directive. Each individual graph type will handle these directives. As an example:</p>
+<pre><code>%%{init: { &#39;logLevel&#39;: &#39;debug&#39;, &#39;theme&#39;: &#39;dark&#39; } }%%
+sequenceDiagram
+%%{config: { &#39;fontFamily&#39;: &#39;Menlo&#39;, &#39;fontSize&#39;: 18, &#39;fontWeight&#39;: 400} }%%
+Alice-&gt;&gt;Bob: Hi Bob
+Bob-&gt;&gt;Alice: Hi Alice</code></pre>
+<h2 id="Chronology"><a href="#Chronology" class="headerlink" title="Chronology"></a>Chronology</h2><p>This will set the <code>logLevel</code> to <code>debug</code> and <code>theme</code> to <code>dark</code> for a sequence diagram. Then, during processing, the config for the sequence diagram is set by the <code>config</code> directive. This directive is handled in the <code>sequenceDb.js</code>. In this example, the fontFamily, fontSize, and fontWeight are all set for this sequence diagram.</p>
+<h4 id="Backwards-Compatibility"><a href="#Backwards-Compatibility" class="headerlink" title="Backwards Compatibility"></a>Backwards Compatibility</h4><p>Init directives and any other non-multiline directives should be backwards compatible, because they will be treated as comments in prior versions of mermaid-js.</p>
+<p>Multiline directives, however, will pose an issue and will render an error. This is unavoidable.</p>
+<h3 id="Wrapping"><a href="#Wrapping" class="headerlink" title="Wrapping"></a>Wrapping</h3><p>The <code>%%{wrap}%%</code> directive and the inline <code>wrap:</code> text hint have also been added for sequence diagrams. This has been explained in my previous comments and has not materially changed.</p>
+<h1 id="Wrap"><a href="#Wrap" class="headerlink" title="Wrap"></a>Wrap</h1><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>wrap</td>
+<td>a callable text-wrap function</td>
+<td>Directive</td>
+<td>Optional</td>
+<td>%%{wrap}%%</td>
+</tr>
+</tbody></table>

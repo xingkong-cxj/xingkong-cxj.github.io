@@ -1,0 +1,458 @@
+<h1 id="Sequence-diagrams"><a href="#Sequence-diagrams" class="headerlink" title="Sequence diagrams"></a>Sequence diagrams</h1><p><strong>Edit this Page</strong> <a href="./sequenceDiagram.md"><img src="./img/GitHub-Mark-32px.png" alt="N|Solid"></a></p>
+<blockquote>
+<p>A Sequence diagram is an interaction diagram that shows how processes operate with one another and in what order.</p>
+</blockquote>
+<p>Mermaid can render sequence diagrams.</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!</code></pre>
+<h2 id="A-note-on-nodes-the-word-“end”-could-potentially-break-the-diagram-due-to-the-way-that-the-mermaid-language-is-scripted"><a href="#A-note-on-nodes-the-word-“end”-could-potentially-break-the-diagram-due-to-the-way-that-the-mermaid-language-is-scripted" class="headerlink" title="A note on nodes, the word “end” could potentially break the diagram, due to the way that the mermaid language is scripted."></a>A note on nodes, the word “end” could potentially break the diagram, due to the way that the mermaid language is scripted.</h2><h2 id="If-unavoidable-one-must-use-parentheses-quotation-marks-“”-or-brackets-to-enclose-the-word-“end”-i-e-end-end-end"><a href="#If-unavoidable-one-must-use-parentheses-quotation-marks-“”-or-brackets-to-enclose-the-word-“end”-i-e-end-end-end" class="headerlink" title="If unavoidable, one must use parentheses(), quotation marks “”, or brackets {},[], to enclose the word “end”. i.e : (end), [end], {end}."></a>If unavoidable, one must use parentheses(), quotation marks “”, or brackets {},[], to enclose the word “end”. i.e : (end), [end], {end}.</h2><h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="Participants"><a href="#Participants" class="headerlink" title="Participants"></a>Participants</h3><p>The participants can be defined implicitly as in the first example on this page. The participants or actors are<br>rendered in order of appearance in the diagram source text. Sometimes you might want to show the participants in a<br>different order than how they appear in the first message. It is possible to specify the actor’s order of<br>appearance by doing the following:</p>
+<pre><code>sequenceDiagram
+    participant John
+    participant Alice
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    participant John
+    participant Alice
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!</code></pre>
+<h3 id="Aliases"><a href="#Aliases" class="headerlink" title="Aliases"></a>Aliases</h3><p>The actor can have a convenient identifier and a descriptive label.</p>
+<pre><code>sequenceDiagram
+    participant A as Alice
+    participant J as John
+    A-&gt;&gt;J: Hello John, how are you?
+    J-&gt;&gt;A: Great!</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    participant A as Alice
+    participant J as John
+    A-&gt;&gt;J: Hello John, how are you?
+    J-&gt;&gt;A: Great!</code></pre>
+<h2 id="Messages"><a href="#Messages" class="headerlink" title="Messages"></a>Messages</h2><p>Messages can be of two displayed either solid or with a dotted line.</p>
+<pre><code>[Actor][Arrow][Actor]:Message text</code></pre>
+<p>There are six types of arrows currently supported:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-&gt;</td>
+<td>Solid line without arrow</td>
+</tr>
+<tr>
+<td>–&gt;</td>
+<td>Dotted line without arrow</td>
+</tr>
+<tr>
+<td>-&gt;&gt;</td>
+<td>Solid line with arrowhead</td>
+</tr>
+<tr>
+<td>–&gt;&gt;</td>
+<td>Dotted line with arrowhead</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>Solid line with a cross at the end (async)</td>
+</tr>
+<tr>
+<td>–x</td>
+<td>Dotted line with a cross at the end (async)</td>
+</tr>
+</tbody></table>
+<h2 id="Activations"><a href="#Activations" class="headerlink" title="Activations"></a>Activations</h2><p>It is possible to activate and deactivate an actor. (de)activation can be dedicated declarations:</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    activate John
+    John--&gt;&gt;Alice: Great!
+    deactivate John</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    activate John
+    John--&gt;&gt;Alice: Great!
+    deactivate John</code></pre>
+<p>There is also a shortcut notation by appending <code>+</code>/<code>-</code> suffix to the message arrow:</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    John--&gt;&gt;-Alice: Great!</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    John--&gt;&gt;-Alice: Great!</code></pre>
+<p>Activations can be stacked for same actor:</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    Alice-&gt;&gt;+John: John, can you hear me?
+    John--&gt;&gt;-Alice: Hi Alice, I can hear you!
+    John--&gt;&gt;-Alice: I feel great!</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    Alice-&gt;&gt;+John: John, can you hear me?
+    John--&gt;&gt;-Alice: Hi Alice, I can hear you!
+    John--&gt;&gt;-Alice: I feel great!</code></pre>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p>It is possible to add notes to a sequence diagram. This is done by the notation<br>Note [ right of | left of | over ] [Actor]: Text in note content</p>
+<p>See the example below:</p>
+<pre><code>sequenceDiagram
+    participant John
+    Note right of John: Text in note</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    participant John
+    Note right of John: Text in note</code></pre>
+<p>It is also possible to create notes spanning two participants:</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;John: Hello John, how are you?
+    Note over Alice,John: A typical interaction</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Alice-&gt;John: Hello John, how are you?
+    Note over Alice,John: A typical interaction</code></pre>
+<h2 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h2><p>It is possible to express loops in a sequence diagram. This is done by the notation</p>
+<pre><code>loop Loop text
+... statements ...
+end</code></pre>
+<p>See the example below:</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;John: Hello John, how are you?
+    loop Every minute
+        John--&gt;Alice: Great!
+    end</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Alice-&gt;John: Hello John, how are you?
+    loop Every minute
+        John--&gt;Alice: Great!
+    end</code></pre>
+<h2 id="Alt"><a href="#Alt" class="headerlink" title="Alt"></a>Alt</h2><p>It is possible to express alternative paths in a sequence diagram. This is done by the notation</p>
+<pre><code>alt Describing text
+... statements ...
+else
+... statements ...
+end</code></pre>
+<p>or if there is sequence that is optional (if without else).</p>
+<pre><code>opt Describing text
+... statements ...
+end</code></pre>
+<p>See the example below:</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;&gt;Bob: Hello Bob, how are you?
+    alt is sick
+        Bob-&gt;&gt;Alice: Not so good :(
+    else is well
+        Bob-&gt;&gt;Alice: Feeling fresh like a daisy
+    end
+    opt Extra response
+        Bob-&gt;&gt;Alice: Thanks for asking
+    end</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    Alice-&gt;&gt;Bob: Hello Bob, how are you?
+    alt is sick
+        Bob-&gt;&gt;Alice: Not so good :(
+    else is well
+        Bob-&gt;&gt;Alice: Feeling fresh like a daisy
+    end
+    opt Extra response
+        Bob-&gt;&gt;Alice: Thanks for asking
+    end</code></pre>
+<h2 id="Parallel"><a href="#Parallel" class="headerlink" title="Parallel"></a>Parallel</h2><p>It is possible to show actions that are happening in parallel.</p>
+<p>This is done by the notation</p>
+<pre><code>par [Action 1]
+... statements ...
+and [Action 2]
+... statements ...
+and [Action N]
+... statements ...
+end</code></pre>
+<p>See the example below:</p>
+<pre><code class="mermaid">sequenceDiagram
+    par Alice to Bob
+        Alice-&gt;&gt;Bob: Hello guys!
+    and Alice to John
+        Alice-&gt;&gt;John: Hello guys!
+    end
+    Bob--&gt;&gt;Alice: Hi Alice!
+    John--&gt;&gt;Alice: Hi Alice!</code></pre>
+<p>It is also possible to nest parallel blocks.</p>
+<pre><code class="mermaid">sequenceDiagram
+    par Alice to Bob
+        Alice-&gt;&gt;Bob: Go help John
+    and Alice to John
+        Alice-&gt;&gt;John: I want this done today
+        par John to Charlie
+            John-&gt;&gt;Charlie: Can we do this today?
+        and John to Diana
+            John-&gt;&gt;Diana: Can you help us today?
+        end
+    end</code></pre>
+<h2 id="Background-Highlighting"><a href="#Background-Highlighting" class="headerlink" title="Background Highlighting"></a>Background Highlighting</h2><p>It is possible to highlight flows by providing colored background rects. This is done by the notation</p>
+<p>The colors are defined using rgb and rgba syntax.</p>
+<pre><code>rect rgb(0, 255, 0)
+... content ...
+end</code></pre>
+<pre><code>rect rgba(0, 0, 255, .1)
+... content ...
+end</code></pre>
+<p>See the examples below:</p>
+<pre><code class="mermaid">sequenceDiagram
+    participant Alice
+    participant John
+
+    rect rgb(191, 223, 255)
+    note right of Alice: Alice calls John.
+    Alice-&gt;&gt;+John: Hello John, how are you?
+    rect rgb(200, 150, 255)
+    Alice-&gt;&gt;+John: John, can you hear me?
+    John--&gt;&gt;-Alice: Hi Alice, I can hear you!
+    end
+    John--&gt;&gt;-Alice: I feel great!
+    end
+    Alice -&gt;&gt;+ John: Did you want to go to the game tonight?
+    John --&gt;&gt;- Alice: Yeah! See you there.
+</code></pre>
+<h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><p>Comments can be entered within a sequence diagram, which will be ignored by the parser.  Comments need to be on their own line, and must be prefaced with <code>%%</code> (double percent signs). Any text after the start of the comment to the next newline will be treated as a comment, including any diagram syntax</p>
+<pre><code>sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    %% this is a comment
+    John--&gt;&gt;Alice: Great!</code></pre>
+<h2 id="sequenceNumbers"><a href="#sequenceNumbers" class="headerlink" title="sequenceNumbers"></a>sequenceNumbers</h2><p>It is possible to get a sequence number attached to each arrow in a sequence diagram. This can be configured when adding mermaid to the website as shown below:</p>
+<pre><code>    &lt;script&gt;
+      mermaid.initialize({
+        sequence: { showSequenceNumbers: true },
+      });
+    &lt;/script&gt;</code></pre>
+<p>It can also be be turned on via the diagram code as in the diagram:</p>
+<pre><code>sequenceDiagram
+    autonumber
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!</code></pre>
+<pre><code class="mermaid">sequenceDiagram
+    autonumber
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!</code></pre>
+<h2 id="Styling"><a href="#Styling" class="headerlink" title="Styling"></a>Styling</h2><p>Styling of a sequence diagram is done by defining a number of css classes. During rendering these classes are extracted from the file located at src/themes/sequence.scss</p>
+<h3 id="Classes-used"><a href="#Classes-used" class="headerlink" title="Classes used"></a>Classes used</h3><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>actor</td>
+<td>Style for the actor box at the top of the diagram.</td>
+</tr>
+<tr>
+<td>text.actor</td>
+<td>Styles for text in the actor box at the top of the diagram.</td>
+</tr>
+<tr>
+<td>actor-line</td>
+<td>The vertical line for an actor.</td>
+</tr>
+<tr>
+<td>messageLine0</td>
+<td>Styles for the solid message line.</td>
+</tr>
+<tr>
+<td>messageLine1</td>
+<td>Styles for the dotted message line.</td>
+</tr>
+<tr>
+<td>messageText</td>
+<td>Defines styles for the text on the message arrows.</td>
+</tr>
+<tr>
+<td>labelBox</td>
+<td>Defines styles label to left in a loop.</td>
+</tr>
+<tr>
+<td>labelText</td>
+<td>Styles for the text in label for loops.</td>
+</tr>
+<tr>
+<td>loopText</td>
+<td>Styles for the text in the loop box.</td>
+</tr>
+<tr>
+<td>loopLine</td>
+<td>Defines styles for the lines in the loop box.</td>
+</tr>
+<tr>
+<td>note</td>
+<td>Styles for the note box.</td>
+</tr>
+<tr>
+<td>noteText</td>
+<td>Styles for the text on in the note boxes.</td>
+</tr>
+</tbody></table>
+<h3 id="Sample-stylesheet"><a href="#Sample-stylesheet" class="headerlink" title="Sample stylesheet"></a>Sample stylesheet</h3><pre><code class="css">body {
+    background: white;
+}
+
+.actor {
+    stroke: #ccccff;
+    fill: #ececff;
+}
+text.actor {
+    fill: black;
+    stroke: none;
+    font-family: Helvetica;
+}
+
+.actor-line {
+    stroke: grey;
+}
+
+.messageLine0 {
+    stroke-width: 1.5;
+    stroke-dasharray: &#39;2 2&#39;;
+    marker-end: &#39;url(#arrowhead)&#39;;
+    stroke: black;
+}
+
+.messageLine1 {
+    stroke-width: 1.5;
+    stroke-dasharray: &#39;2 2&#39;;
+    stroke: black;
+}
+
+#arrowhead {
+    fill: black;
+}
+
+.messageText {
+    fill: black;
+    stroke: none;
+    font-family: &#39;trebuchet ms&#39;, verdana, arial;
+    font-size: 14px;
+}
+
+.labelBox {
+    stroke: #ccccff;
+    fill: #ececff;
+}
+
+.labelText {
+    fill: black;
+    stroke: none;
+    font-family: &#39;trebuchet ms&#39;, verdana, arial;
+}
+
+.loopText {
+    fill: black;
+    stroke: none;
+    font-family: &#39;trebuchet ms&#39;, verdana, arial;
+}
+
+.loopLine {
+    stroke-width: 2;
+    stroke-dasharray: &#39;2 2&#39;;
+    marker-end: &#39;url(#arrowhead)&#39;;
+    stroke: #ccccff;
+}
+
+.note {
+    stroke: #decc93;
+    fill: #fff5ad;
+}
+
+.noteText {
+    fill: black;
+    stroke: none;
+    font-family: &#39;trebuchet ms&#39;, verdana, arial;
+    font-size: 14px;
+}</code></pre>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>Is it possible to adjust the margins for rendering the sequence diagram.</p>
+<p>This is done by defining <code>mermaid.sequenceConfig</code> or by the CLI to use a json file with the configuration.<br>How to use the CLI is described in the <a href="mermaidCLI.html">mermaidCLI</a> page.<br><code>mermaid.sequenceConfig</code> can be set to a JSON string with config parameters or the corresponding object.</p>
+<pre><code class="javascript">mermaid.sequenceConfig = {
+    diagramMarginX: 50,
+    diagramMarginY: 10,
+    boxTextMargin: 5,
+    noteMargin: 10,
+    messageMargin: 35,
+    mirrorActors: true
+};</code></pre>
+<h3 id="Possible-configuration-params"><a href="#Possible-configuration-params" class="headerlink" title="Possible configuration params:"></a>Possible configuration params:</h3><table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mirrorActors</td>
+<td>Turns on/off the rendering of actors below the diagram as well as above it</td>
+<td>false</td>
+</tr>
+<tr>
+<td>bottomMarginAdj</td>
+<td>Adjusts how far down the graph ended. Wide borders styles with css could generate unwanted clipping which is why this config param exists.</td>
+<td>1</td>
+</tr>
+<tr>
+<td>actorFontSize</td>
+<td>Sets the font size for the actor’s description</td>
+<td>14</td>
+</tr>
+<tr>
+<td>actorFontFamily</td>
+<td>Sets the font family for the actor’s description</td>
+<td>“Open-Sans”, “sans-serif”</td>
+</tr>
+<tr>
+<td>actorFontWeight</td>
+<td>Sets the font weight for the actor’s description</td>
+<td>“Open-Sans”, “sans-serif”</td>
+</tr>
+<tr>
+<td>noteFontSize</td>
+<td>Sets the font size for actor-attached notes</td>
+<td>14</td>
+</tr>
+<tr>
+<td>noteFontFamily</td>
+<td>Sets the font family for actor-attached notes</td>
+<td>“trebuchet ms”, verdana, arial</td>
+</tr>
+<tr>
+<td>noteFontWeight</td>
+<td>Sets the font weight for actor-attached notes</td>
+<td>“trebuchet ms”, verdana, arial</td>
+</tr>
+<tr>
+<td>noteAlign</td>
+<td>Sets the text alignment for text in actor-attached notes</td>
+<td>center</td>
+</tr>
+<tr>
+<td>messageFontSize</td>
+<td>Sets the font size for actor&lt;-&gt;actor messages</td>
+<td>16</td>
+</tr>
+<tr>
+<td>messageFontFamily</td>
+<td>Sets the font family for actor&lt;-&gt;actor messages</td>
+<td>“trebuchet ms”, verdana, arial</td>
+</tr>
+<tr>
+<td>messageFontWeight</td>
+<td>Sets the font weight for actor&lt;-&gt;actor messages</td>
+<td>“trebuchet ms”, verdana, arial</td>
+</tr>
+</tbody></table>

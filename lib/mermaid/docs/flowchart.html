@@ -1,0 +1,370 @@
+<h1 id="Flowcharts-Basic-Syntax"><a href="#Flowcharts-Basic-Syntax" class="headerlink" title="Flowcharts - Basic Syntax"></a>Flowcharts - Basic Syntax</h1><p><strong>Edit this Page</strong> <a href="./flowchart.md"><img src="./img/GitHub-Mark-32px.png" alt="N|Solid"></a></p>
+<h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><p>This statement declares the direction of the Flowchart.</p>
+<p>This declares the graph is oriented from top to bottom (<code>TD</code> or <code>TB</code>).</p>
+<pre><code>graph TD
+    Start --&gt; Stop</code></pre>
+<pre><code class="mermaid">graph TD
+    Start --&gt; Stop</code></pre>
+<p>This declares the graph is oriented from left to right (<code>LR</code>).</p>
+<pre><code>graph LR
+    Start --&gt; Stop</code></pre>
+<pre><code class="mermaid">graph LR
+    Start --&gt; Stop</code></pre>
+<h2 id="Flowchart-Orientation"><a href="#Flowchart-Orientation" class="headerlink" title="Flowchart Orientation"></a>Flowchart Orientation</h2><p>Possible FlowChart orientations are:</p>
+<ul>
+<li>TB - top to bottom</li>
+<li>TD - top-down/ same as top to bottom</li>
+<li>BT - bottom to top</li>
+<li>RL - right to left</li>
+<li>LR - left to right</li>
+</ul>
+<h2 id="Flowcharts"><a href="#Flowcharts" class="headerlink" title="Flowcharts"></a>Flowcharts</h2><p>This renders a flowchart that allows for features such as: more arrow types, multi directional arrows, and linking to and from subgraphs. </p>
+<p>Apart from the graph type, the syntax is the same. This is currently experimental but when the beta period is over, both the graph and flowchart keywords will render in the new way. This means it is ok to start beta testing flowcharts.</p>
+<h2 id="An-important-note-on-Flowchart-nodes-do-not-type-the-word-“end”-as-a-Flowchart-node-Capitalize-all-or-any-one-the-letters-to-keep-the-flowchart-from-breaking-i-e-“End”-or-“END”-Or-you-can-apply-this-workaround"><a href="#An-important-note-on-Flowchart-nodes-do-not-type-the-word-“end”-as-a-Flowchart-node-Capitalize-all-or-any-one-the-letters-to-keep-the-flowchart-from-breaking-i-e-“End”-or-“END”-Or-you-can-apply-this-workaround" class="headerlink" title="An important note on Flowchart nodes, do not type the word “end” as a Flowchart node. Capitalize all or any one the letters to keep the flowchart from breaking, i.e, “End” or “END”. Or you can apply this workaround."></a>An important note on Flowchart nodes, do not type the word “end” as a Flowchart node. Capitalize all or any one the letters to keep the flowchart from breaking, i.e, “End” or “END”. Or you can apply this <a href="https://github.com/mermaid-js/mermaid/issues/1444#issuecomment-639528897" target="_blank" rel="noopener">workaround</a>.</h2><h2 id="Nodes-amp-shapes"><a href="#Nodes-amp-shapes" class="headerlink" title="Nodes &amp; shapes"></a>Nodes &amp; shapes</h2><h3 id="A-node-default"><a href="#A-node-default" class="headerlink" title="A node (default)"></a>A node (default)</h3><pre><code>graph LR
+    id</code></pre>
+<pre><code class="mermaid">graph LR
+    id</code></pre>
+<h1 id="Note-that-the-id-is-what-is-displayed-in-the-box"><a href="#Note-that-the-id-is-what-is-displayed-in-the-box" class="headerlink" title="Note that the id is what is displayed in the box."></a>Note that the id is what is displayed in the box.</h1><h3 id="A-node-with-text"><a href="#A-node-with-text" class="headerlink" title="A node with text"></a>A node with text</h3><p>It is also possible to set text in the box that differs from the id. If this is done several times, it is the last text<br>found for the node that will be used. Also if you define edges for the node later on, you can omit text definitions. The<br>one previously defined will be used when rendering the box.</p>
+<pre><code>graph LR
+    id1[This is the text in the box]</code></pre>
+<pre><code class="mermaid">graph LR
+    id1[This is the text in the box]</code></pre>
+<h2 id="Node-Shapes"><a href="#Node-Shapes" class="headerlink" title="Node Shapes"></a>Node Shapes</h2><h3 id="A-node-with-round-edges"><a href="#A-node-with-round-edges" class="headerlink" title="A node with round edges"></a>A node with round edges</h3><pre><code>graph LR
+    id1(This is the text in the box)</code></pre>
+<pre><code class="mermaid">graph LR
+    id1(This is the text in the box)</code></pre>
+<h3 id="A-stadium-shaped-node"><a href="#A-stadium-shaped-node" class="headerlink" title="A stadium-shaped node"></a>A stadium-shaped node</h3><pre><code>graph LR
+    id1([This is the text in the box])</code></pre>
+<pre><code class="mermaid">graph LR
+    id1([This is the text in the box])</code></pre>
+<h3 id="A-node-in-a-subroutine-shape"><a href="#A-node-in-a-subroutine-shape" class="headerlink" title="A node in a subroutine shape"></a>A node in a subroutine shape</h3><pre><code>graph LR
+    id1[[This is the text in the box]]</code></pre>
+<pre><code class="mermaid">graph LR
+    id1[[This is the text in the box]]</code></pre>
+<h3 id="A-node-in-a-cylindrical-shape"><a href="#A-node-in-a-cylindrical-shape" class="headerlink" title="A node in a cylindrical shape"></a>A node in a cylindrical shape</h3><pre><code>graph LR
+    id1[(Database)]</code></pre>
+<pre><code class="mermaid">graph LR
+    id1[(Database)]</code></pre>
+<h3 id="A-node-in-the-form-of-a-circle"><a href="#A-node-in-the-form-of-a-circle" class="headerlink" title="A node in the form of a circle"></a>A node in the form of a circle</h3><pre><code>graph LR
+    id1((This is the text in the circle))</code></pre>
+<pre><code class="mermaid">graph LR
+    id1((This is the text in the circle))</code></pre>
+<h3 id="A-node-in-an-asymetric-shape"><a href="#A-node-in-an-asymetric-shape" class="headerlink" title="A node in an asymetric shape"></a>A node in an asymetric shape</h3><pre><code>graph LR
+    id1&gt;This is the text in the box]</code></pre>
+<pre><code class="mermaid">graph LR
+    id1&gt;This is the text in the box]</code></pre>
+<p>Currently only the shape above is possible and not its mirror. <em>This might change with future releases.</em></p>
+<h3 id="A-node-rhombus"><a href="#A-node-rhombus" class="headerlink" title="A node (rhombus)"></a>A node (rhombus)</h3><pre><code>graph LR
+    id1{This is the text in the box}</code></pre>
+<pre><code class="mermaid">graph LR
+    id1{This is the text in the box}</code></pre>
+<h3 id="A-hexagon-node"><a href="#A-hexagon-node" class="headerlink" title="A hexagon node"></a>A hexagon node</h3><pre><code>graph LR
+    id1{{This is the text in the box}}</code></pre>
+<pre><code class="mermaid">graph LR
+    id1{{This is the text in the box}}</code></pre>
+<h3 id="Parallelogram"><a href="#Parallelogram" class="headerlink" title="Parallelogram"></a>Parallelogram</h3><pre><code>graph TD
+    id1[/This is the text in the box/]</code></pre>
+<pre><code class="mermaid">graph TD
+    id1[/This is the text in the box/]</code></pre>
+<h3 id="Parallelogram-alt"><a href="#Parallelogram-alt" class="headerlink" title="Parallelogram alt"></a>Parallelogram alt</h3><pre><code>graph TD
+    id1[\This is the text in the box\]</code></pre>
+<pre><code class="mermaid">graph TD
+    id1[\This is the text in the box\]</code></pre>
+<h3 id="Trapezoid"><a href="#Trapezoid" class="headerlink" title="Trapezoid"></a>Trapezoid</h3><pre><code>graph TD
+    A[/Christmas\]</code></pre>
+<pre><code class="mermaid">graph TD
+    A[/Christmas\]</code></pre>
+<h3 id="Trapezoid-alt"><a href="#Trapezoid-alt" class="headerlink" title="Trapezoid alt"></a>Trapezoid alt</h3><pre><code>graph TD
+    B[\Go shopping/]</code></pre>
+<pre><code class="mermaid">graph TD
+    B[\Go shopping/]</code></pre>
+<h2 id="Links-between-nodes"><a href="#Links-between-nodes" class="headerlink" title="Links between nodes"></a>Links between nodes</h2><p>Nodes can be connected with links/edges. It is possible to have different types of links or attach a text string to a link.</p>
+<h3 id="A-link-with-arrow-head"><a href="#A-link-with-arrow-head" class="headerlink" title="A link with arrow head"></a>A link with arrow head</h3><pre><code>graph LR
+    A--&gt;B</code></pre>
+<pre><code class="mermaid">graph LR
+    A--&gt;B</code></pre>
+<h3 id="An-open-link"><a href="#An-open-link" class="headerlink" title="An open link"></a>An open link</h3><pre><code>graph LR
+    A --- B</code></pre>
+<pre><code class="mermaid">graph LR
+    A --- B</code></pre>
+<h3 id="Text-on-links"><a href="#Text-on-links" class="headerlink" title="Text on links"></a>Text on links</h3><pre><code>graph LR
+    A-- This is the text! ---B</code></pre>
+<pre><code class="mermaid">graph LR
+    A-- This is the text ---B</code></pre>
+<p>or</p>
+<pre><code>graph LR
+    A---|This is the text|B</code></pre>
+<pre><code class="mermaid">graph LR
+    A---|This is the text|B</code></pre>
+<h3 id="A-link-with-arrow-head-and-text"><a href="#A-link-with-arrow-head-and-text" class="headerlink" title="A link with arrow head and text"></a>A link with arrow head and text</h3><pre><code>graph LR
+    A--&gt;|text|B</code></pre>
+<pre><code class="mermaid">graph LR
+    A--&gt;|text|B</code></pre>
+<p>or</p>
+<pre><code>graph LR
+    A-- text --&gt;B</code></pre>
+<pre><code class="mermaid">graph LR
+    A-- text --&gt;B</code></pre>
+<h3 id="Dotted-link"><a href="#Dotted-link" class="headerlink" title="Dotted link"></a>Dotted link</h3><pre><code>graph LR;
+   A-.-&gt;B;</code></pre>
+<pre><code class="mermaid">graph LR;
+   A-.-&gt;B;</code></pre>
+<h3 id="Dotted-link-with-text"><a href="#Dotted-link-with-text" class="headerlink" title="Dotted link with text"></a>Dotted link with text</h3><pre><code>graph LR
+   A-. text .-&gt; B</code></pre>
+<pre><code class="mermaid">graph LR
+   A-. text .-&gt; B</code></pre>
+<h3 id="Thick-link"><a href="#Thick-link" class="headerlink" title="Thick link"></a>Thick link</h3><pre><code>graph LR
+   A ==&gt; B</code></pre>
+<pre><code class="mermaid">graph LR
+   A ==&gt; B</code></pre>
+<h3 id="Thick-link-with-text"><a href="#Thick-link-with-text" class="headerlink" title="Thick link with text"></a>Thick link with text</h3><pre><code>graph LR
+   A == text ==&gt; B</code></pre>
+<pre><code class="mermaid">graph LR
+   A == text ==&gt; B</code></pre>
+<h3 id="Chaining-of-links"><a href="#Chaining-of-links" class="headerlink" title="Chaining of links"></a>Chaining of links</h3><p>It is possible declare many links in the same line as per below:</p>
+<pre><code>graph LR
+   A -- text --&gt; B -- text2 --&gt; C</code></pre>
+<pre><code class="mermaid">graph LR
+   A -- text --&gt; B -- text2 --&gt; C</code></pre>
+<p>It is also possible to declare multiple nodes links in the same line as per below:</p>
+<pre><code>graph LR
+   a --&gt; b &amp; c--&gt; d</code></pre>
+<pre><code class="mermaid">graph LR
+   a --&gt; b &amp; c--&gt; d</code></pre>
+<p>You can then describe dependencies in a very expressive way. Like the onliner below:</p>
+<pre><code>graph TB
+    A &amp; B--&gt; C &amp; D</code></pre>
+<pre><code class="mermaid">graph TB
+    A &amp; B--&gt; C &amp; D</code></pre>
+<p>If you describe the same diagram using the the basic syntax, it will take four lines. A<br>word of warning, one could go overboard with this making the graph harder to read in<br>markdown form. The Swedish word <code>lagom</code> comes to mind. It means, not to much and not to little.<br>This goes for expressive syntaxes as well.</p>
+<pre><code>graph TB
+    A --&gt; C
+    A --&gt; D
+    B --&gt; C
+    B --&gt; D</code></pre>
+<h2 id="Beta-New-arrow-types"><a href="#Beta-New-arrow-types" class="headerlink" title="Beta: New arrow types"></a>Beta: New arrow types</h2><p>When using flowchart instead of graph there is the are new types of arrows supported as per below:</p>
+<pre><code>flowchart LR
+    A --o B
+    B --x C</code></pre>
+<pre><code class="mermaid">flowchart LR
+    A --o B
+    B --x C</code></pre>
+<h2 id="Beta-multi-directional-arrows"><a href="#Beta-multi-directional-arrows" class="headerlink" title="Beta: multi directional arrows"></a>Beta: multi directional arrows</h2><p>When using flowchart instead of graph there is the possibility to use multidirectional arrows.</p>
+<pre><code>flowchart LR
+    A o--o B
+    B &lt;--&gt; C
+    C x--x D</code></pre>
+<pre><code class="mermaid">flowchart LR
+    A o--o B
+    B &lt;--&gt; C
+    C x--x D</code></pre>
+<h2 id="Special-characters-that-break-syntax"><a href="#Special-characters-that-break-syntax" class="headerlink" title="Special characters that break syntax"></a>Special characters that break syntax</h2><p>It is possible to put text within quotes in order to render more troublesome characters. As in the example below:</p>
+<pre><code>graph LR
+    id1[&quot;This is the (text) in the box&quot;]</code></pre>
+<pre><code class="mermaid">graph LR
+    id1[&quot;This is the (text) in the box&quot;]</code></pre>
+<h3 id="Entity-codes-to-escape-characters"><a href="#Entity-codes-to-escape-characters" class="headerlink" title="Entity codes to escape characters"></a>Entity codes to escape characters</h3><p>It is possible to escape characters using the syntax examplified here.</p>
+<pre><code>    graph LR
+        A[&quot;A double quote:#quot;&quot;] --&gt;B[&quot;A dec char:#9829;&quot;]</code></pre>
+<pre><code class="mermaid">    graph LR
+        A[&quot;A double quote:#quot;&quot;] --&gt;B[&quot;A dec char:#9829;&quot;]</code></pre>
+<h2 id="Subgraphs"><a href="#Subgraphs" class="headerlink" title="Subgraphs"></a>Subgraphs</h2><pre><code>subgraph title
+    graph definition
+end</code></pre>
+<p>An example below:</p>
+<pre><code>graph TB
+    c1--&gt;a2
+    subgraph one
+    a1--&gt;a2
+    end
+    subgraph two
+    b1--&gt;b2
+    end
+    subgraph three
+    c1--&gt;c2
+    end</code></pre>
+<pre><code class="mermaid">graph TB
+    c1--&gt;a2
+    subgraph one
+    a1--&gt;a2
+    end
+    subgraph two
+    b1--&gt;b2
+    end
+    subgraph three
+    c1--&gt;c2
+    end</code></pre>
+<p> You can also set an excplicit id for the subgraph.</p>
+<pre><code>graph TB
+    c1--&gt;a2
+    subgraph ide1 [one]
+    a1--&gt;a2
+    end</code></pre>
+<pre><code class="mermaid">graph TB
+    c1--&gt;a2
+    subgraph id1 [one]
+    a1--&gt;a2
+    end</code></pre>
+<h2 id="Beta-flowcharts"><a href="#Beta-flowcharts" class="headerlink" title="Beta: flowcharts"></a>Beta: flowcharts</h2><p>With the graphtype flowcharts it is also possible to set edges to and from subgraphs as in the graph below.</p>
+<pre><code>flowchart TB
+    c1--&gt;a2
+    subgraph one
+    a1--&gt;a2
+    end
+    subgraph two
+    b1--&gt;b2
+    end
+    subgraph three
+    c1--&gt;c2
+    end
+    one --&gt; two
+    three --&gt; two
+    two --&gt; c2</code></pre>
+<pre><code class="mermaid">flowchart TB
+    c1--&gt;a2
+    subgraph one
+    a1--&gt;a2
+    end
+    subgraph two
+    b1--&gt;b2
+    end
+    subgraph three
+    c1--&gt;c2
+    end
+    one --&gt; two
+    three --&gt; two
+    two --&gt; c2</code></pre>
+<h2 id="Interaction"><a href="#Interaction" class="headerlink" title="Interaction"></a>Interaction</h2><p>It is possible to bind a click event to a node, the click can lead to either a javascript callback or to a link which will be opened in a new browser tab. <strong>Note</strong>: This functionality is disabled when using <code>securityLevel=&#39;strict&#39;</code> and enabled when using <code>securityLevel=&#39;loose&#39;</code>.</p>
+<pre><code>click nodeId callback</code></pre>
+<ul>
+<li>nodeId is the id of the node</li>
+<li>callback is the name of a javascript function defined on the page displaying the graph, the function will be called with the nodeId as parameter.</li>
+</ul>
+<p>Examples of tooltip usage below:</p>
+<pre><code>&lt;script&gt;
+  var callback = function(){
+      alert(&#39;A callback was triggered&#39;);
+  }
+&lt;/script&gt;</code></pre>
+<pre><code>graph LR;
+    A--&gt;B;
+    click A callback &quot;Tooltip for a callback&quot;
+    click B &quot;http://www.github.com&quot; &quot;This is a tooltip for a link&quot;</code></pre>
+<p>The tooltip text is surrounded in double quotes. The styles of the tooltip are set by the class .mermaidTooltip.</p>
+<pre><code class="mermaid">graph LR
+    A--&gt;B;
+    click A callback &quot;Tooltip&quot;
+    click B &quot;http://www.github.com&quot; &quot;This is a link&quot;</code></pre>
+<blockquote>
+<p><strong>Success</strong> The tooltip functionality and the ability to link to urls are available from version 0.5.2.</p>
+</blockquote>
+<p>?&gt; Due to limitations with how Docsify handles JavaScript callback functions, an alternate working demo for the above code can be viewed at <a href="https://jsfiddle.net/s37cjoau/3/" target="_blank" rel="noopener">this jsfiddle</a>.</p>
+<p>Beginners tip, a full example using interactive links in a html context:</p>
+<pre><code>&lt;body&gt;
+  &lt;div class=&quot;mermaid&quot;&gt;
+    graph LR;
+        A--&gt;B;
+        click A callback &quot;Tooltip&quot;
+        click B &quot;http://www.github.com&quot; &quot;This is a link&quot;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    var callback = function(){
+        alert(&#39;A callback was triggered&#39;);
+    }
+    var config = {
+        startOnLoad:true,
+        flowchart:{
+            useMaxWidth:true,
+            htmlLabels:true,
+            curve:&#39;cardinal&#39;,
+        },
+        securityLevel:&#39;loose&#39;,
+    };
+
+    mermaid.initialize(config);
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<h3 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h3><p>Comments can be entered within a flow diagram, which will be ignored by the parser.  Comments need to be on their own line, and must be prefaced with <code>%%</code> (double percent signs). Any text after the start of the comment to the next newline will be treated as a comment, including any flow syntax</p>
+<pre><code>graph LR
+%% this is a comment A -- text --&gt; B{node}
+   A -- text --&gt; B -- text2 --&gt; C</code></pre>
+<h2 id="Styling-and-classes"><a href="#Styling-and-classes" class="headerlink" title="Styling and classes"></a>Styling and classes</h2><h3 id="Styling-links"><a href="#Styling-links" class="headerlink" title="Styling links"></a>Styling links</h3><p>It is possible to style links. For instance you might want to style a link that is going backwards in the flow. As links<br>have no ids in the same way as nodes, some other way of deciding what style the links should be attached to is required.<br>Instead of ids, the order number of when the link was defined in the graph is used. In the example below the style<br>defined in the linkStyle statement will belong to the fourth link in the graph:</p>
+<pre><code>linkStyle 3 stroke:#ff3,stroke-width:4px,color:red;</code></pre>
+<h3 id="Styling-a-node"><a href="#Styling-a-node" class="headerlink" title="Styling a node"></a>Styling a node</h3><p>It is possible to apply specific styles such as a thicker border or a different background color to a node.</p>
+<pre><code>graph LR
+    id1(Start)--&gt;id2(Stop)
+    style id1 fill:#f9f,stroke:#333,stroke-width:4px
+    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5, 5</code></pre>
+<pre><code class="mermaid">graph LR
+    id1(Start)--&gt;id2(Stop)
+    style id1 fill:#f9f,stroke:#333,stroke-width:4px
+    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5, 5</code></pre>
+<h4 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h4><p>More convenient then defining the style every time is to define a class of styles and attach this class to the nodes that<br>should have a different look.</p>
+<p>a class definition looks like the example below:</p>
+<pre><code>    classDef className fill:#f9f,stroke:#333,stroke-width:4px;</code></pre>
+<p>Attachment of a class to a node is done as per below:</p>
+<pre><code>    class nodeId1 className;</code></pre>
+<p>It is also possible to attach a class to a list of nodes in one statement:</p>
+<pre><code>    class nodeId1,nodeId2 className;</code></pre>
+<p>A shorter form of adding a class is to attach the classname to the node using the <code>:::</code>operator as per below:</p>
+<pre><code>graph LR
+    A:::someclass --&gt; B
+    classDef someclass fill:#f96;</code></pre>
+<pre><code class="mermaid">graph LR
+    A:::someclass --&gt; B
+    classDef someclass fill:#f96;</code></pre>
+<h3 id="Css-classes"><a href="#Css-classes" class="headerlink" title="Css classes"></a>Css classes</h3><p>It is also possible to predefine classes in css styles that can be applied from the graph definition as in the example<br>below:</p>
+<p><strong>Example style</strong></p>
+<pre><code class="html">&lt;style&gt;
+    .cssClass &gt; rect{
+        fill:#FF0000;
+        stroke:#FFFF00;
+        stroke-width:4px;
+    }
+&lt;/style&gt;</code></pre>
+<p><strong>Example definition</strong></p>
+<pre><code>graph LR;
+    A--&gt;B[AAA&lt;span&gt;BBB&lt;/span&gt;];
+    B--&gt;D;
+    class A cssClass;</code></pre>
+<pre><code class="mermaid">graph LR;
+    A--&gt;B[AAA&lt;span&gt;BBB&lt;/span&gt;];
+    B--&gt;D;
+    class A cssClass;</code></pre>
+<h3 id="Default-class"><a href="#Default-class" class="headerlink" title="Default class"></a>Default class</h3><p>If a class is named default it will be assigned to all classes without specific class definitions.</p>
+<pre><code>    classDef default fill:#f9f,stroke:#333,stroke-width:4px;</code></pre>
+<h2 id="Basic-support-for-fontawesome"><a href="#Basic-support-for-fontawesome" class="headerlink" title="Basic support for fontawesome"></a>Basic support for fontawesome</h2><p>It is possible to add icons from fontawesome.</p>
+<p>The icons are acessed via the syntax fa:#icon class name#.</p>
+<pre><code>graph TD
+    B[&quot;fa:fa-twitter for peace&quot;]
+    B--&gt;C[fa:fa-ban forbidden]
+    B--&gt;D(fa:fa-spinner);
+    B--&gt;E(A fa:fa-camera-retro perhaps?);</code></pre>
+<pre><code class="mermaid">graph TD
+    B[&quot;fa:fa-twitter for peace&quot;]
+    B--&gt;C[fa:fa-ban forbidden]
+    B--&gt;D(fa:fa-spinner);
+    B--&gt;E(A fa:fa-camera-retro perhaps?);</code></pre>
+<h2 id="Graph-declarations-with-spaces-between-vertices-and-link-and-without-semicolon"><a href="#Graph-declarations-with-spaces-between-vertices-and-link-and-without-semicolon" class="headerlink" title="Graph declarations with spaces between vertices and link and without semicolon"></a>Graph declarations with spaces between vertices and link and without semicolon</h2><ul>
+<li><p>In graph declarations, the statements also can now end without a semicolon. After release 0.2.16, ending a graph statement with semicolon is just optional. So the below graph declaration is also valid along with the old declarations of the graph.</p>
+</li>
+<li><p>A single space is allowed between vertices and the link. However there should not be any space between a vertex and its text and a link and its text. The old syntax of graph declaration will also work and hence this new feature is optional and is introduce to improve readability.</p>
+</li>
+</ul>
+<p>Below is the new declaration of the graph edges which is also valid along with the old declaration of the graph edges.</p>
+<pre><code>graph LR
+    A[Hard edge] --&gt;|Link text| B(Round edge)
+    B --&gt; C{Decision}
+    C --&gt;|One| D[Result one]
+    C --&gt;|Two| E[Result two]</code></pre>
+<pre><code class="mermaid">graph LR
+    A[Hard edge] --&gt;|Link text| B(Round edge)
+    B --&gt; C{Decision}
+    C --&gt;|One| D[Result one]
+    C --&gt;|Two| E[Result two]</code></pre>
+<h2 id="Configuration…"><a href="#Configuration…" class="headerlink" title="Configuration…"></a>Configuration…</h2><p>Is it possible to adjust the width of the rendered flowchart.</p>
+<p>This is done by defining <strong>mermaid.flowchartConfig</strong> or by the CLI to use a json file with the configuration. How to use<br>the CLI is described in the mermaidCLI page.<br>mermaid.flowchartConfig can be set to a JSON string with config parameters or the corresponding object.</p>
+<pre><code class="javascript">mermaid.flowchartConfig = {
+    width: 100%
+}</code></pre>

@@ -1,0 +1,169 @@
+<h1 id="Mermaid"><a href="#Mermaid" class="headerlink" title="Mermaid"></a>Mermaid</h1><p><a href="https://travis-ci.org/mermaid-js/mermaid" target="_blank" rel="noopener"><img src="https://travis-ci.org/mermaid-js/mermaid.svg?branch=master" alt="Build Status"></a><br><a href="https://coveralls.io/github/knsv/mermaid?branch=master" target="_blank" rel="noopener"><img src="https://coveralls.io/repos/github/knsv/mermaid/badge.svg?branch=master" alt="Coverage Status"></a><br><a href="https://gitter.im/knsv/mermaid?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank" rel="noopener"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/knsv/mermaid"></a></p>
+<p><img src="./img/header.png" alt="banner"><br><strong>Edit this Page</strong> <a href="https://github.com/mermaid-js/mermaid/blob/develop/docs/README.md" target="_blank" rel="noopener"><img src="./img/GitHub-Mark-32px.png" alt="N|Solid"></a></p>
+<p><strong>Mermaid was nominated and won the JS Open Source Awards (2019) in the category “The most exciting use of technology”!!! Thanks to all involved, people committing pull requests, people answering questions and special thanks to Tyler Long who is helping me maintain the project.</strong></p>
+<p>Mermaid is a tool that generates diagrams and charts, from markdown-inspired text definitions</p>
+<p>This allows for simplified generation and updating of even the most complex diagrams and charts, while avoiding time-damanding and heavy tools like visio. </p>
+<p>mermaid, is a simple markdown-inspired script language for generating charts from text-definitions, via javascript. As such, using it cuts the times it takes to create, modify and render diagrams. </p>
+<p>Even non-programmers can create diagrams through the <a href="https://github.com/mermaidjs/mermaid-live-editor" target="_blank" rel="noopener">mermaid live editor</a>.</p>
+<p>For a more detailed introduction to mermaid, look to the <a href="https://mermaid-js.github.io/mermaid/#/n00b-overview" target="_blank" rel="noopener">Beginner’s Guide</a> section.</p>
+<p>You should also Check out the list of <a href="./integrations.md">Integrations and Usages of Mermaid</a></p>
+<p>You can also watch some popular mermaid tutorials on the <a href="./n00b-overview.md">mermaid Overview</a></p>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a><a href="https://unpkg.com/mermaid/" target="_blank" rel="noopener">CDN</a></h2><h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a><a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">Documentation</a></h2><h2 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a><a href="https://github.com/mermaid-js/mermaid/blob/develop/CONTRIBUTING.md" target="_blank" rel="noopener">Contribution</a></h2><h1 id="New-in-Version-8-6-0"><a href="#New-in-Version-8-6-0" class="headerlink" title="New in Version 8.6.0"></a>New in Version 8.6.0</h1><h2 id="New-Mermaid-Live-Editor-Beta"><a href="#New-Mermaid-Live-Editor-Beta" class="headerlink" title="New Mermaid Live-Editor Beta"></a><a href="https://mermaid-js.github.io/docs/mermaid-live-editor-beta/#/edit/eyJjb2RlIjoiJSV7aW5pdDoge1widGhlbWVcIjogXCJmb3Jlc3RcIiwgXCJsb2dMZXZlbFwiOiAxIH19JSVcbmdyYXBoIFREXG4gIEFbQ2hyaXN0bWFzXSAtLT58R2V0IG1vbmV5fCBCKEdvIHNob3BwaW5nKVxuICBCIC0tPiBDe0xldCBtZSB0aGlua31cbiAgQyAtLT58T25lfCBEW0xhcHRvcF1cbiAgQyAtLT58VHdvfCBFW2lQaG9uZV1cbiAgQyAtLT58VGhyZWV8IEZbZmE6ZmEtY2FyIENhcl1cblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGFyayJ9fQ" target="_blank" rel="noopener">New Mermaid Live-Editor Beta</a></h2><h2 id="New-Configuration-Protocols-in-version-8-6-0"><a href="#New-Configuration-Protocols-in-version-8-6-0" class="headerlink" title="New Configuration Protocols in version 8.6.0"></a><a href="https://github.com/NeilCuzon/mermaid/edit/develop/docs/8.6.0_docs.md" target="_blank" rel="noopener">New Configuration Protocols in version 8.6.0</a></h2><h2 id="New-diagrams-in-8-5"><a href="#New-diagrams-in-8-5" class="headerlink" title="New diagrams in 8.5"></a>New diagrams in 8.5</h2><p>With version 8.5 there are some bug fixes and enhancements, plus a new diagram type,  entity relationship diagrams.</p>
+<p><img src="./img/er.png" alt="Image showing the new ER diagram type"></p>
+<h2 id="Special-note-regarding-version-8-2"><a href="#Special-note-regarding-version-8-2" class="headerlink" title="Special note regarding version 8.2"></a>Special note regarding version 8.2</h2><p>In version 8.2 a security improvement was introduced. A <strong>securityLevel</strong> configuration was introduced which sets the level of trust to be used on the parsed diagrams.</p>
+<h2 id="securityLevel"><a href="#securityLevel" class="headerlink" title="securityLevel"></a>securityLevel</h2><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>securitylevel</td>
+<td>Level of trust for parsed diagram</td>
+<td>String</td>
+<td>Required</td>
+<td>Strict, Loose</td>
+</tr>
+</tbody></table>
+<p>**Notes:</p>
+<ul>
+<li><strong>strict</strong>: (<strong>default</strong>) tags in text are encoded, click functionality is disabeled</li>
+<li><strong>loose</strong>: tags in text are allowed, click functionality is enabled</li>
+</ul>
+<p>Closed issues:</p>
+<p>⚠️ <strong>Note</strong> : This changes the default behaviour of mermaid so that after upgrade to 8.2, if the securityLevel is not configured, tags in flowcharts are encoded as tags and clicking is prohibited.</p>
+<p>If your application is taking responsibility for the diagram source security you can set the securityLevel accordingly. By doing this clicks and tags are again allowed.</p>
+<pre><code class="javascript">mermaidAPI.initialize({
+    securityLevel: &#39;loose&#39;
+});</code></pre>
+<p><strong>🖖 Keep a steady pulse: mermaid needs more Collaborators <a href="https://github.com/knsv/mermaid/issues/866" target="_blank" rel="noopener">#866</a></strong></p>
+<h1 id="Diagrams-that-mermaid-can-render"><a href="#Diagrams-that-mermaid-can-render" class="headerlink" title="Diagrams that mermaid can render:"></a>Diagrams that mermaid can render:</h1><h3 id="Flowchart"><a href="#Flowchart" class="headerlink" title="Flowchart"></a><a href="https://mermaid-js.github.io/mermaid/#/flowchart" target="_blank" rel="noopener">Flowchart</a></h3><pre><code>graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;</code></pre>
+<p><img src="./img/flow.png" alt="Flowchart"></p>
+<h3 id="Sequence-diagram"><a href="#Sequence-diagram" class="headerlink" title="Sequence diagram"></a><a href="https://mermaid-js.github.io/mermaid/#/sequenceDiagram" target="_blank" rel="noopener">Sequence diagram</a></h3><pre><code>sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts &lt;br/&gt;prevail!
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!</code></pre>
+<p><img src="./img/sequence.png" alt="Sequence diagram"></p>
+<h3 id="Gantt-diagram"><a href="#Gantt-diagram" class="headerlink" title="Gantt diagram"></a><a href="https://mermaid-js.github.io/mermaid/#/gantt" target="_blank" rel="noopener">Gantt diagram</a></h3><pre><code>gantt
+dateFormat  YYYY-MM-DD
+title Adding GANTT diagram to mermaid
+excludes weekdays 2014-01-10
+
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task               :         des3, after des2, 5d
+Future task2               :         des4, after des3, 5d</code></pre>
+<p><img src="./img/gantt.png" alt="Gantt diagram"></p>
+<h3 id="Class-diagram-exclamation-experimental"><a href="#Class-diagram-exclamation-experimental" class="headerlink" title="Class diagram - :exclamation: experimental"></a><a href="https://mermaid-js.github.io/mermaid/#/classDiagram" target="_blank" rel="noopener">Class diagram - :exclamation: experimental</a></h3><pre><code>classDiagram
+Class01 &lt;|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --&gt; C2 : Where am i?
+Class09 --* C3
+Class09 --|&gt; Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 &lt;--&gt; C2: Cool label</code></pre>
+<p><img src="./img/class.png" alt="Class diagram"></p>
+<h3 id="Git-graph-exclamation-experimental"><a href="#Git-graph-exclamation-experimental" class="headerlink" title="Git graph - :exclamation: experimental"></a>Git graph - :exclamation: experimental</h3><pre><code>gitGraph:
+options
+{
+    &quot;nodeSpacing&quot;: 150,
+    &quot;nodeRadius&quot;: 10
+}
+end
+commit
+branch newbranch
+checkout newbranch
+commit
+commit
+checkout master
+commit
+commit
+merge newbranch
+</code></pre>
+<p><img src="./img/git.png" alt="Git graph"></p>
+<h3 id="Entity-Relationship-Diagram-exclamation-experimental"><a href="#Entity-Relationship-Diagram-exclamation-experimental" class="headerlink" title="Entity Relationship Diagram - :exclamation: experimental"></a><a href="https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram" target="_blank" rel="noopener">Entity Relationship Diagram - :exclamation: experimental</a></h3><pre><code>erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+</code></pre>
+<p><img src="./img/simple-er.png" alt="ER diagram"></p>
+<h3 id="User-Journey-Diagram"><a href="#User-Journey-Diagram" class="headerlink" title="User Journey Diagram"></a><a href="https://mermaid-js.github.io/mermaid/#/user-journey" target="_blank" rel="noopener">User Journey Diagram</a></h3><pre><code class="markdown">journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me</code></pre>
+<p><img src="./img/user-journey.png" alt="Journey diagram"></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="CDN-1"><a href="#CDN-1" class="headerlink" title="CDN"></a>CDN</h3><pre><code>https://unpkg.com/mermaid@&lt;version&gt;/dist/</code></pre>
+<p>To select a version:</p>
+<p>Replace <code>&lt;version&gt;</code> with the desired version number.</p>
+<p>Alternatively, you can also adjust the version number in the page itself. </p>
+<p>Latest Version: <a href="https://unpkg.com/browse/mermaid@8.6.0/" target="_blank" rel="noopener">https://unpkg.com/browse/mermaid@8.6.0/</a></p>
+<h2 id="Incorporating-mermaid-to-a-website"><a href="#Incorporating-mermaid-to-a-website" class="headerlink" title="Incorporating mermaid to a website"></a>Incorporating mermaid to a website</h2><p>to support mermaid on your website, all you have to do is add Mermaid’s JavaScript package </p>
+<pre><code>1.You will need to isntall node v10 or 12, which would have npm
+
+2. download yarn using npm.
+
+2. enter the following command:
+    yarn add mermaid
+
+3. You can then add mermaid as a dev dependency using this command: 
+    yarn add --dev mermaid
+</code></pre>
+<h2 id="To-install-mermaid-without-a-bundler-one-can-use-the-script-tag-like-so"><a href="#To-install-mermaid-without-a-bundler-one-can-use-the-script-tag-like-so" class="headerlink" title="To install mermaid without a bundler, one can use the script tag like so:"></a>To install mermaid without a bundler, one can use the script tag like so:</h2><script src="https://unpkg.com/mermaid/"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+<h2 id="it-can-then-be-followed-by-the-diagram-definitions-as-could-be-found-in-the-examples-in-the-documentation"><a href="#it-can-then-be-followed-by-the-diagram-definitions-as-could-be-found-in-the-examples-in-the-documentation" class="headerlink" title="it can then be followed by the diagram definitions as could be found in the examples in the documentation."></a>it can then be followed by the diagram definitions as could be found in the <a href="https://mermaid-js.github.io/mermaid/#/n00b-gettingStarted" target="_blank" rel="noopener">examples in the documentation</a>.</h2><h2 id="On-your-page-mermaid-will-look-for-tags-with-class-”mermaid”-From-these-tags-mermaid-will-try-to-read-the-chart-definiton-and-replace-it-with-an-svg-chart"><a href="#On-your-page-mermaid-will-look-for-tags-with-class-”mermaid”-From-these-tags-mermaid-will-try-to-read-the-chart-definiton-and-replace-it-with-an-svg-chart" class="headerlink" title="On your page mermaid will look for tags with class=”mermaid”. From these tags mermaid will try to read the chart definiton and replace it with an svg chart."></a>On your page mermaid will look for tags with class=”mermaid”. From these tags mermaid will try to read the chart definiton and replace it with an svg chart.</h2><h2 id="Sibling-projects"><a href="#Sibling-projects" class="headerlink" title="Sibling projects"></a>Sibling projects</h2><ul>
+<li><a href="https://github.com/mermaidjs/mermaid-live-editor" target="_blank" rel="noopener">mermaid live editor</a></li>
+<li><a href="https://github.com/mermaidjs/mermaid.cli" target="_blank" rel="noopener">mermaid CLI</a></li>
+<li><a href="https://github.com/mermaidjs/mermaid-webpack-demo" target="_blank" rel="noopener">mermaid webpack demo</a></li>
+<li><a href="https://github.com/mermaidjs/mermaid-parcel-demo" target="_blank" rel="noopener">mermaid Parcel demo</a></li>
+</ul>
+<h2 id="Request-for-assistance"><a href="#Request-for-assistance" class="headerlink" title="Request for assistance"></a>Request for assistance</h2><p>Things are piling up and I have a hard time keeping up. To remedy this<br>it would be great if we could form a core team of developers to cooperate<br>with the future development of mermaid.</p>
+<p>As part of this team you would get write access to the repository and would<br>represent the project when answering questions and issues.</p>
+<p>Together we could continue the work with things like:</p>
+<ul>
+<li>Adding more types of diagrams like mindmaps, ert diagrams, etc.</li>
+<li>Improving existing diagrams</li>
+</ul>
+<p>Don’t hesitate to contact me if you want to get involved.</p>
+<h2 id="For-contributors"><a href="#For-contributors" class="headerlink" title="For contributors"></a>For contributors</h2><h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><pre><code>yarn install</code></pre>
+<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><pre><code>yarn build:watch</code></pre>
+<h3 id="Lint"><a href="#Lint" class="headerlink" title="Lint"></a>Lint</h3><pre><code>yarn lint</code></pre>
+<p>We use <a href="https://eslint.org/" target="_blank" rel="noopener">eslint</a>.<br>We recommend you installing <a href="https://eslint.org/docs/user-guide/integrations" target="_blank" rel="noopener">editor plugins</a> so you can get real time lint result.</p>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><pre><code>yarn test</code></pre>
+<p>Manual test in browser: open <code>dist/index.html</code></p>
+<h3 id="Release"><a href="#Release" class="headerlink" title="Release"></a>Release</h3><p>For those who have the permission to do so:</p>
+<p>Update version number in <code>package.json</code>.</p>
+<pre><code>npm publish</code></pre>
+<p>Command above generates files into the <code>dist</code> folder and publishes them to npmjs.org.</p>
+<h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits"></a>Credits</h2><p>Many thanks to the <a href="http://d3js.org/" target="_blank" rel="noopener">d3</a> and <a href="https://github.com/cpettitt/dagre-d3" target="_blank" rel="noopener">dagre-d3</a> projects for providing the graphical layout and drawing libraries!</p>
+<p>Thanks also to the <a href="http://bramp.github.io/js-sequence-diagrams" target="_blank" rel="noopener">js-sequence-diagram</a> project for usage of the grammar for the sequence diagrams. Thanks to Jessica Peter for inspiration and starting point for gantt rendering.</p>
+<p><em>Mermaid was created by Knut Sveidqvist for easier documentation.</em></p>
+<p><em><a href="https://github.com/tylerlong" target="_blank" rel="noopener">Tyler Long</a> has became a collaborator since April 2017.</em></p>
+<p>Here is the full list of the projects <a href="https://github.com/knsv/mermaid/graphs/contributors" target="_blank" rel="noopener">contributors</a>.</p>

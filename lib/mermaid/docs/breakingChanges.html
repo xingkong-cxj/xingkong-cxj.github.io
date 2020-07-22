@@ -1,0 +1,23 @@
+<h1 id="Breaking-changes"><a href="#Breaking-changes" class="headerlink" title="Breaking changes"></a>Breaking changes</h1><p><strong>Edit this Page</strong> <a href="https://github.com/mermaid-js/mermaid/blob/develop/docs/breakingChanges.md" target="_blank" rel="noopener"><img src="./img/GitHub-Mark-32px.png" alt="N|Solid"></a></p>
+<h3 id="Breaking-changes-from-history-version-to-latest-version"><a href="#Breaking-changes-from-history-version-to-latest-version" class="headerlink" title="Breaking changes from history version to latest version:"></a>Breaking changes from history version to latest version:</h3><h2 id="1"><a href="#1" class="headerlink" title="#1"></a>#1</h2><pre><code class="javascript">mermaid.initialize({
+    sequenceDiagram:{
+        ...
+    }
+})</code></pre>
+<p>has been changed to</p>
+<pre><code class="javascript">mermaid.initialize({
+    sequence:{
+        ...
+    }
+})</code></pre>
+<h2 id="2"><a href="#2" class="headerlink" title="#2"></a>#2</h2><p>In old versions you need to add CSS file to your HTML:</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;mermaid.min.css&quot;&gt;</code></pre>
+<p>or</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;mermaid.forest.min.css&quot;&gt;</code></pre>
+<p>Now it is not needed to do so. And there are no more CSS files in distrubtion files.</p>
+<p>You just</p>
+<pre><code class="javascript">mermaid.initialize({
+    theme: &#39;forest&#39;
+})</code></pre>
+<p>and it works like a charm.</p>
+<p>This is because now the CSS is inline with SVG for portability.</p>

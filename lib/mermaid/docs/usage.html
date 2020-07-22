@@ -1,0 +1,239 @@
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p><strong>Edit this Page</strong> <a href="https://github.com/mermaid-js/mermaid/blob/develop/docs/usage.md" target="_blank" rel="noopener"><img src="./img/GitHub-Mark-32px.png" alt="N|Solid"></a></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="npm-package"><a href="#npm-package" class="headerlink" title="npm package"></a>npm package</h3><pre><code>1.You will need to isntall node v10 or 12, which would have npm.
+
+2. download yarn using npm.
+
+2. enter the following command:
+    yarn add mermaid
+
+3. You can then add mermaid as a dev dependency using this command: 
+    yarn add --dev mermaid</code></pre>
+<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p><a href="https://unpkg.com/mermaid/" target="_blank" rel="noopener">https://unpkg.com/mermaid/</a></p>
+<p>Please note that you can switch versions through the dropdown box at the top right.</p>
+<h2 id="Simple-usage-on-a-web-page"><a href="#Simple-usage-on-a-web-page" class="headerlink" title="Simple usage on a web page"></a>Simple usage on a web page</h2><p>The easiest way to integrate mermaid on a web page requires two elements:</p>
+<ol>
+<li>Inclusion of the mermaid framework in the html page using a script tag</li>
+<li>A graph definition on the web page</li>
+</ol>
+<p>If these things are in place mermaid listens to the page load event and when fired (when the page has loaded) it will<br>locate the graphs on the page and transform them to svg files.</p>
+<h3 id="Include-mermaid-on-your-web-page"><a href="#Include-mermaid-on-your-web-page" class="headerlink" title="Include mermaid on your web page:"></a>Include mermaid on your web page:</h3><pre><code class="html">  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid@8.6.0/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;</code></pre>
+<p>Further down on your page mermaid will look for tags with <code>class=&quot;mermaid&quot;</code>. From these tags mermaid will try to<br>read the chart definiton and replace it with the svg chart.</p>
+<h3 id="Define-a-chart-like-thi"><a href="#Define-a-chart-like-thi" class="headerlink" title="Define a chart like thi:"></a>Define a chart like thi:</h3><pre><code class="html">&lt;div class=&quot;mermaid&quot;&gt;
+     graph LR
+      A --- B
+      B--&gt;C[fa:fa-ban forbidden]
+      B--&gt;D(fa:fa-spinner);
+&lt;/div&gt;</code></pre>
+<p>Would end up like this:</p>
+<pre><code class="html">&lt;div class=&quot;mermaid&quot; id=&quot;mermaidChart0&quot;&gt;
+    &lt;svg&gt;
+        Chart ends up here
+    &lt;/svg&gt;
+&lt;/div&gt;</code></pre>
+<h2 id="Simple-full-example"><a href="#Simple-full-example" class="headerlink" title="Simple full example:"></a>Simple full example:</h2><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;mermaid&quot;&gt;
+  graph LR
+      A --- B
+      B--&gt;C[fa:fa-ban forbidden]
+      B--&gt;D(fa:fa-spinner);
+  &lt;/div&gt;
+ &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid@8.6.0/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+ &lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2 id="Try-it-out-save-this-code-as-HTML-and-load-it"><a href="#Try-it-out-save-this-code-as-HTML-and-load-it" class="headerlink" title="Try it out, save this code as HTML and load it."></a>Try it out, save this code as HTML and load it.</h2><h3 id="To-enable-click-event-and-tags-in-nodes"><a href="#To-enable-click-event-and-tags-in-nodes" class="headerlink" title="To enable click event and tags in nodes"></a>To enable click event and tags in nodes</h3><p>In version 8.2 a security improvement was introduced. A <code>securityLevel</code> configuration was introduced which sets the level of trust to be used on the parsed diagrams.    </p>
+<ul>
+<li><strong>true</strong>: (default) tags in text are encoded, click functionality is disabled    </li>
+<li>false: tags in text are allowed, click functionality is enabled    </li>
+</ul>
+<p>⚠️ <strong>Note</strong> : This changes the default behaviour of mermaid so that after upgrade to 8.2, if the <code>securityLevel</code> is not configured, tags in flowcharts are encoded as tags and clicking is prohibited.    </p>
+<p>If your application is taking resposibility for the diagram source security you can set the <code>securityLevel</code> accordingly. By doing this clicks and tags are again allowed.    </p>
+<pre><code class="javascript">    mermaidAPI.initialize({    
+        securityLevel: &#39;loose&#39;    
+    });    </code></pre>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes:"></a>Notes:</h2><p>An id attribute is also added to mermaid tags without one.</p>
+<p>Mermaid can load multiple diagrams, in the same page.</p>
+<h2 id="To-enable-click-event-and-tags-in-nodes-1"><a href="#To-enable-click-event-and-tags-in-nodes-1" class="headerlink" title="To enable click event and tags in nodes:"></a>To enable click event and tags in nodes:</h2><p>In version 8.2 a security improvement was introduced. A <code>securityLevel</code> configuration was introduced which sets the level of trust to be used on the parsed diagrams.</p>
+<ul>
+<li><strong>true</strong>: (default) tags in text are encoded, click functionality is disabled</li>
+<li>false: tags in text are allowed, click functionality is enabled</li>
+</ul>
+<p>⚠️ <strong>Note</strong> : This changes the default behaviour of mermaid so that after upgrade to 8.2, if the <code>securityLevel</code> is not configured, tags in flowcharts are encoded as tags and clicking is prohibited.</p>
+<p>If your application is taking resposibility for the diagram source security you can set the <code>securityLevel</code> accordingly. By doing this clicks and tags are again allowed.</p>
+<pre><code class="javascript">    mermaidAPI.initialize({
+        securityLevel: &#39;loose&#39;
+    });</code></pre>
+<h3 id="Labels-out-of-bounds"><a href="#Labels-out-of-bounds" class="headerlink" title="Labels out of bounds"></a>Labels out of bounds</h3><p>If you use dynamically loaded fonts that are loaded through CSS, such as Google fonts, mermaid should wait for the<br>whole page to load (dom + assets, particularly the fonts file).</p>
+<pre><code class="javascript">$(document).load(function() {
+    mermaid.initialize();
+});</code></pre>
+<p>or</p>
+<pre><code class="javascript">$(document).ready(function() {
+    mermaid.initialize();
+});</code></pre>
+<p>Not doing so will most likely result in mermaid rendering graphs that have labels out of bounds. The default integration in mermaid uses the window.load event to start rendering.</p>
+<p>If your page has other fonts in its body those might be used instead of the mermaid font. Specifying the font in your styling is a workaround for this. </p>
+<pre><code>    div.mermaid {
+        font-family: &#39;trebuchet ms&#39;, verdana, arial;
+    }</code></pre>
+<h3 id="Calling-mermaid-init"><a href="#Calling-mermaid-init" class="headerlink" title="Calling mermaid.init"></a>Calling <code>mermaid.init</code></h3><p>By default, <code>mermaid.init</code> will be called when the document is ready, finding all elements with<br><code>class=&quot;mermaid&quot;</code>. If you are adding content after mermaid is loaded, or otherwise need<br>finer-grained control of this behavior, you can call <code>init</code> yourself with:</p>
+<ul>
+<li>a configuration object</li>
+<li>some nodes, as<ul>
+<li>a node</li>
+<li>an array-like of nodes</li>
+<li>or W3C selector that will find your nodes</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code class="javascript">mermaid.init({noteMargin: 10}, &quot;.someOtherClass&quot;);</code></pre>
+<p>Or with no config object, and a jQuery selection:</p>
+<pre><code class="javascript">mermaid.init(undefined, $(&quot;#someId .yetAnotherClass&quot;));</code></pre>
+<blockquote>
+<p><strong>Warning</strong> This type of integration is deprecated. Instead the preferred way of handling more complex integration is to use the mermaidAPI instead.</p>
+</blockquote>
+<h2 id="Usage-with-webpack"><a href="#Usage-with-webpack" class="headerlink" title="Usage with webpack"></a>Usage with webpack</h2><p>mermaid fully supports webpack. Here is a <a href="https://github.com/mermaidjs/mermaid-webpack-demo" target="_blank" rel="noopener">working demo</a>.</p>
+<h2 id="API-usage"><a href="#API-usage" class="headerlink" title="API usage"></a>API usage</h2><p>The main idea of the API is to be able to call a render function with the graph defintion as a string. The render function<br>will render the graph and call a callback with the resulting svg code. With this approach it is up to the site creator to<br>fetch the graph definition from the site (perhaps from a textarea), render it and place the graph somewhere in the site.</p>
+<p>The example below show an outline of how this could be used. The example just logs the resulting svg to the javascript console.</p>
+<pre><code class="html">&lt;script src=&quot;mermaid.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    mermaid.mermaidAPI.initialize({
+        startOnLoad:false
+    });
+    $(function(){
+        // Example of using the API
+        var element = document.querySelector(&quot;#graphDiv&quot;);
+
+        var insertSvg = function(svgCode, bindFunctions){
+            element.innerHTML = svgCode;
+        };
+
+        var graphDefinition = &#39;graph TB\na--&gt;b&#39;;
+        var graph = mermaid.mermaidAPI.render(&#39;graphDiv&#39;, graphDefinition, insertSvg);
+    });
+&lt;/script&gt;</code></pre>
+<h3 id="Binding-events"><a href="#Binding-events" class="headerlink" title="Binding events"></a>Binding events</h3><p>Sometimes the generated graph also has defined interactions like tooltip and click events. When using the API one must<br>add those events after the graph has been inserted into the DOM.</p>
+<p>The example code below is an extract of what mermaid does when using the API. The example shows how it is possible to<br>bind events to an svg when using the API for rendering.</p>
+<pre><code class="javascript">var insertSvg = function(svgCode, bindFunctions) {
+    element.innerHTML = svgCode;
+    if(typeof callback !== &#39;undefined&#39;){
+        callback(id);
+    }
+    bindFunctions(element);
+};
+
+var id = &#39;theGraph&#39;;
+
+
+mermaidAPI.render(id,txt,insertSvg, element);</code></pre>
+<ol>
+<li>The graph is generated using the render call.</li>
+<li>After generation the render function calls the provided callback function, in this case it’s called insertSvg.</li>
+<li>The callback function is called with two parameters, the svg code of the generated graph and a function. This function binds events to the svg <strong>after</strong> it is inserted into the DOM.</li>
+<li>Insert the svg code into the DOM for presentation.</li>
+<li>Call the binding function that binds the events.</li>
+</ol>
+<h2 id="Example-of-a-marked-renderer"><a href="#Example-of-a-marked-renderer" class="headerlink" title="Example of a marked renderer"></a>Example of a marked renderer</h2><p>This is the renderer used for transforming the documentation from markdown to html with mermaid diagrams in the html.</p>
+<pre><code class="javascript">var renderer = new marked.Renderer();
+renderer.code = function (code, language) {
+    if(code.match(/^sequenceDiagram/)||code.match(/^graph/)){
+        return &#39;&lt;div class=&quot;mermaid&quot;&gt;&#39;+code+&#39;&lt;/div&gt;&#39;;
+    }
+    else{
+        return &#39;&lt;pre&gt;&lt;code&gt;&#39;+code+&#39;&lt;/code&gt;&lt;/pre&gt;&#39;;
+    }
+};</code></pre>
+<p>Another example in coffeescript that also includes the mermaid script tag in the generated markup.</p>
+<pre><code class="CoffeeScript">marked = require &#39;marked&#39;
+
+module.exports = (options) -&gt;
+  hasMermaid = false
+  renderer = new marked.Renderer()
+  renderer.defaultCode = renderer.code
+  renderer.code = (code, language) -&gt;
+    if language is &#39;mermaid&#39;
+      html = &#39;&#39;
+      if not hasMermaid
+        hasMermaid = true
+        html += &#39;&lt;script src=&quot;&#39;+options.mermaidPath+&#39;&quot;&gt;&lt;/script&gt;&#39;
+      html + &#39;&lt;div class=&quot;mermaid&quot;&gt;&#39;+code+&#39;&lt;/div&gt;&#39;
+    else
+      @defaultCode(code, language)
+
+  renderer</code></pre>
+<h2 id="Advanced-usage"><a href="#Advanced-usage" class="headerlink" title="Advanced usage"></a>Advanced usage</h2><p><strong>Error handling</strong></p>
+<p>When the parser encounters invalid syntax the <strong>mermaid.parseError</strong> function is called. It is possible to override this<br>function in order to handle the error in an application-specific way.</p>
+<p><strong>Parsing text without rendering</strong></p>
+<p>It is also possible to validate the syntax before rendering in order to streamline the user experience. The function<br><strong>mermaid.parse(txt)</strong> takes a text string as an argument and returns true if the text is syntactically correct and<br>false if it is not. The parseError function will be called when the parse function returns false.</p>
+<p>The code-example below in meta code illustrates how this could work:</p>
+<pre><code class="javascript">mermaid.parseError = function(err,hash){
+    displayErrorInGui(err);
+};
+
+var textFieldUpdated = function(){
+    var textStr = getTextFromFormField(&#39;code&#39;);
+
+    if(mermaid.parse(textStr)){
+        reRender(textStr)
+    }
+};
+
+bindEventHandler(&#39;change&#39;, &#39;code&#39;, textFieldUpdated);</code></pre>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>Mermaid takes a number of options which lets you tweak the rendering of the diagrams. Currently there are three ways of<br>setting the options in mermaid.</p>
+<ol>
+<li>Instantiation of the configuration using the initialize call</li>
+<li><em>Using the global mermaid object</em> - deprecated</li>
+<li><em>using the global mermaid_config object</em> - deprecated</li>
+<li>Instantiation of the configuration using the <strong>mermaid.init</strong> call</li>
+</ol>
+<p>The list above has two ways too many of doing this. Three are deprecated and will eventually be removed. The list of<br>configuration objects are described <a href="mermaidAPI.html">in the mermaidAPI documentation</a>.</p>
+<h2 id="Using-the-mermaidAPI-initialize-mermaid-initialize-call"><a href="#Using-the-mermaidAPI-initialize-mermaid-initialize-call" class="headerlink" title="Using the mermaidAPI.initialize/mermaid.initialize call"></a>Using the <code>mermaidAPI.initialize</code>/<code>mermaid.initialize</code> call</h2><p>The future proof way of setting the configuration is by using the initialization call to mermaid or mermaidAPI depending<br>on what kind of integration you use.</p>
+<pre><code class="html">&lt;script src=&quot;../dist/mermaid.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var config = {
+        startOnLoad:true,
+        flowchart:{
+            useMaxWidth:false,
+            htmlLabels:true
+        }
+    };
+    mermaid.initialize(config);
+&lt;/script&gt;</code></pre>
+<blockquote>
+<p><strong>Success</strong> This is the preferred way of configuring mermaid.</p>
+</blockquote>
+<h2 id="Using-the-mermaid-object"><a href="#Using-the-mermaid-object" class="headerlink" title="Using the mermaid object"></a>Using the mermaid object</h2><p>Is it possible to set some configuration via the mermaid object. The two parameters that are supported using this<br>approach are:</p>
+<ul>
+<li>mermaid.startOnLoad</li>
+<li>mermaid.htmlLabels</li>
+</ul>
+<pre><code>mermaid.startOnLoad = true;</code></pre>
+<blockquote>
+<p><strong>Warning</strong> This way of setting the configuration is deprecated. Instead the preferred way is to use the initialize method. This functionality is only kept for backwards compatibility.</p>
+</blockquote>
+<h2 id="Using-the-mermaid-config"><a href="#Using-the-mermaid-config" class="headerlink" title="Using the mermaid_config"></a>Using the mermaid_config</h2><p>It is possible to set some configuration via the mermaid object. The two parameters that are supported using this<br>approach are:</p>
+<ul>
+<li>mermaid_config.startOnLoad</li>
+<li>mermaid_config.htmlLabels</li>
+</ul>
+<pre><code class="javascript">mermaid_config.startOnLoad = true;</code></pre>
+<blockquote>
+<p><strong>Warning</strong> This way of setting the configuration is deprecated. Instead the preferred way is to use the initialize method. This functionality is only kept for backwards compatibility.</p>
+</blockquote>
+<h2 id="Using-the-mermaid-init-call"><a href="#Using-the-mermaid-init-call" class="headerlink" title="Using the mermaid.init call"></a>Using the mermaid.init call</h2><p>Is it possible to set some configuration via the mermaid object. The two parameters that are supported using this<br>approach are:</p>
+<ul>
+<li>mermaid_config.startOnLoad</li>
+<li>mermaid_config.htmlLabels</li>
+</ul>
+<pre><code>mermaid_config.startOnLoad = true;</code></pre>
+<blockquote>
+<p><strong>Warning</strong> This way of setting the configuration is deprecated. Instead the preferred way is to use the initialize method. This functionality is only kept for backwards compatibility.</p>
+</blockquote>
