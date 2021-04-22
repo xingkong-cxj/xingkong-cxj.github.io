@@ -95,5 +95,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:SocChen/SocChen.github.io.git
+  repository: https://github.com/SocChen/SocChen.github.io
   branch: master
